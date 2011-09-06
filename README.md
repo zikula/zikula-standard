@@ -5,7 +5,7 @@ This repository provides metadata for the Zikula CI server to build the Official
 
 The `build.xml` file instructs the CI server which version of Zikula Core to download and which modules.
 
-The `custom.sql` is a customised SQL version that will be used during the installation process, allowing Zikula Standard to be fully setup on installation.
+The `custom-$lang.sql` is a customised SQL version that will be used during the installation process, allowing Zikula Standard to be fully setup on installation.
 
 
 Versioning
