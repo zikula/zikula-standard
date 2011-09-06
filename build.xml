@@ -80,6 +80,10 @@
         <exec command="git checkout master" />
         <exec command="mv ${builddir}/tmp/Socialise/src/modules/Socialise ${packagepath}/modules" />
 
+        <exec command="git clone git://github.com/drak/Thumbnail ${builddir}/tmp/Thumbnail" />
+        <exec command="git checkout master" />
+        <exec command="mv ${builddir}/tmp/Thumbnail/src/modules/Thumbnail ${packagepath}/modules" />
+
         <exec command="git clone git://github.com/zikula-modules/EZComments ${builddir}/tmp/EZComments" />
         <exec command="git fetch release-3.0.x" />
         <exec command="git checkout v3.0.0" />
