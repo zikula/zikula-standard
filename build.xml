@@ -78,8 +78,11 @@
         <exec command="git clone git://github.com/zikula-modules/Scribite ${builddir}/tmp/Scribite" />
         <exec command="mv ${builddir}/tmp/Scribite/src/modules/Scribite ${packagepath}/modules" />
 
-        <exec command="git clone git://github.com/zikula-modules/Socialise ${builddir}/tmp/Socialise" />
+        <exec command="git clone git://github.com/phaidon/Socialise ${builddir}/tmp/Socialise" />
         <exec command="mv ${builddir}/tmp/Socialise/src/modules/Socialise ${packagepath}/modules" />
+
+        <exec command="git clone git://github.com/zikula-modules/EZComments ${builddir}/tmp/EZComments" />
+        <exec command="mv ${builddir}/tmp/EZComments/src/modules/EZComments ${packagepath}/modules" />
 
         <!-- compress JS -->
         <foreach list="${ownjslist}" param="filename" target="compressownjs" />
