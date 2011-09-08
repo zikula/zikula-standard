@@ -74,6 +74,9 @@
         <exec command="git clone git://github.com/zikula-modules/Scribite ${builddir}/tmp/Scribite" />
         <exec command="cd ${builddir}/tmp/Scribite; git checkout master" />
         <exec command="mv ${builddir}/tmp/Scribite/src/modules/Scribite ${packagepath}/modules" />
+        <!-- remove editors, we're using xihna -->
+        <exec command="rm -rf ${packagepath}/modules/Scribite/includes/ckeditor" />
+        <exec command="rm -rf ${packagepath}/modules/Scribite/includes/nicedit" />
 
         <exec command="git clone git://github.com/phaidon/Socialise ${builddir}/tmp/Socialise" />
         <exec command="cd ${builddir}/tmp/Socialise; git checkout master" />
