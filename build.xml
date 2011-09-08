@@ -50,14 +50,16 @@
     <!-- Build archives -->
     <target name="build" depends="prepare">
         <echo msg="Exporting for build..." />
-        <!-- ATTN export urls require manual edit -->
-        <exec command="cp -a ${workspace}/source/src ${packagepath}" />
-        <delete dir="${packagepath}/themes/Admin" includeemptydirs="true" />
-        
+
+        <!-- download the core -->
         <exec command="git clone git://github.com/zikula/core.git ${builddir}/tmp/core" />
         <exec command="cd ${builddir}/tmp/core; git fetch --tags origin release-1.3; git checkout origin/release-1.3" />
         <exec command="mv ${builddir}/tmp/core/src ${packagepath}" />
+
+        <!-- copy customisations -->
         <exec command="mv ${workspace}/source/custom-*.sql ${packagepath}/install/sql" />
+        <exec command="cp -a ${workspace}/source/src/* ${packagepath}" />
+        <delete dir="${packagepath}/themes/Admin" includeemptydirs="true" />
 
         <exec command="git clone git://github.com/zikula-modules/Legal.git ${builddir}/tmp/Legal" />
         <exec command="cd ${builddir}/tmp/Legal; git checkout 2.0.0" />
