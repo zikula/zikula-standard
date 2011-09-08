@@ -111,6 +111,11 @@
         <chmod file="${packagepath}/ztemp/idsTmp" mode="0777" />
         <chmod file="${packagepath}/ztemp/purifierCache" mode="0777" />
 
+        <!-- custom stuff -->
+        <chmod file="${packagepath}/userdata/Clip" mode="0777" />
+        <chmod file="${packagepath}/userdata/Clip/uploads" mode="0777" />
+        <chmod file="${packagepath}/ztemp/ClipModels" mode="0777" />
+
         <echo msg="Creating archive..." />
         <!-- zip's don't play nicely in Phing - using direct command -->
         <!-- exec escape="false" command="cd ${exportdir}; zip -D -r ${archivedir}/${package}.zip ." / -->
