@@ -57,7 +57,6 @@
         <exec command="mv ${builddir}/tmp/core/src ${packagepath}" />
 
         <!-- copy customisations -->
-        <exec command="mv ${workspace}/source/custom-*.sql ${packagepath}/install/sql" />
         <exec command="cp -a ${workspace}/source/src/* ${packagepath}" />
         <delete dir="${packagepath}/themes/Admin" includeemptydirs="true" />
 
