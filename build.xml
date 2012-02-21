@@ -99,6 +99,8 @@
         <exec command="cd ${builddir}/tmp/EZComments; git checkout v3.0.0" />
         <exec command="mv ${builddir}/tmp/EZComments/src/modules/EZComments ${packagepath}/modules" />
 
+        <exec command="find -type d -iname .git | xargs rm -rf" />
+	
         <!-- compress JS -->
         <foreach list="${ownjslist}" param="filename" target="compressownjs" />
 
