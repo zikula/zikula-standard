@@ -83,10 +83,6 @@
         <exec command="cd ${builddir}/tmp/Socialise; git checkout master" />
         <exec command="mv ${builddir}/tmp/Socialise/src/modules/Socialise ${packagepath}/modules" />
 
-        <exec command="git clone git://github.com/drak/Thumbnail ${builddir}/tmp/Thumbnail" />
-        <exec command="cd ${builddir}/tmp/Thumbnail; git checkout master" />
-        <exec command="mv ${builddir}/tmp/Thumbnail/src/modules/Thumbnail ${packagepath}/modules" />
-
         <exec command="git clone git://github.com/craigh/Tag ${builddir}/tmp/Tag" />
         <exec command="cd ${builddir}/tmp/Tag; git checkout 1.0.2" />
         <exec command="mv ${builddir}/tmp/Tag/src/modules/Tag ${packagepath}/modules" />
