@@ -87,7 +87,7 @@
         <exec command="cd ${builddir}/tmp/Tag; git checkout 1.0.2" />
         <exec command="mv ${builddir}/tmp/Tag/src/modules/Tag ${packagepath}/modules" />
 
-        <exec command="git clone git:/github.com/craigh/Captcha/github.com/craigh/Captcha ${builddir}/tmp/Captcha" />
+        <exec command="git clone git:/github.com/craigh/Captcha ${builddir}/tmp/Captcha" />
         <exec command="cd ${builddir}/tmp/Captcha; git checkout v1.0.0" />
         <exec command="mv ${builddir}/tmp/Captcha/src/modules/Captcha ${packagepath}/modules" />
 
