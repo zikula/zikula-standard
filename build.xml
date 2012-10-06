@@ -76,12 +76,22 @@
         <exec command="cd ${builddir}/tmp/Scribite; git checkout origin/release-4.3" />
         <exec command="mv ${builddir}/tmp/Scribite/src/modules/Scribite ${packagepath}/modules" />
         <!-- remove editors, we're using xihna -->
-        <exec command="rm -rf ${packagepath}/modules/Scribite/includes/ckeditor" />
-        <exec command="rm -rf ${packagepath}/modules/Scribite/includes/nicedit" />
+        <exec command="rm -rf ${packagepath}/modules/Scribite/plugins/Aloha" />
+        <exec command="rm -rf ${packagepath}/modules/Scribite/plugins/CKEditor" />
+        <exec command="rm -rf ${packagepath}/modules/Scribite/plugins/MarkItUp" />
+        <exec command="rm -rf ${packagepath}/modules/Scribite/plugins/NiceEdit" />
+        <exec command="rm -rf ${packagepath}/modules/Scribite/plugins/WYMeditor" />
+        <exec command="rm -rf ${packagepath}/modules/Scribite/plugins/Wysihtml5" />
+        <exec command="rm -rf ${packagepath}/modules/Scribite/plugins/Xinha" />
+        <exec command="rm -rf ${packagepath}/modules/Scribite/plugins/YUI" />
 
         <exec command="git clone git://github.com/phaidon/Socialise ${builddir}/tmp/Socialise" />
         <exec command="cd ${builddir}/tmp/Socialise; git checkout master" />
         <exec command="mv ${builddir}/tmp/Socialise/src/modules/Socialise ${packagepath}/modules" />
+
+        <exec command="git clone git://github.com/zikula-modules/EZComments ${builddir}/tmp/EZComments" />
+        <exec command="cd ${builddir}/tmp/EZComments; git checkout release-3.0" />
+        <exec command="mv ${builddir}/tmp/EZComments/src/modules/EZComments ${packagepath}/modules" />
 
         <exec command="git clone git://github.com/craigh/Tag ${builddir}/tmp/Tag" />
         <exec command="cd ${builddir}/tmp/Tag; git checkout 1.0.2" />
@@ -90,10 +100,6 @@
         <exec command="git clone git://github.com/craigh/Captcha ${builddir}/tmp/Captcha" />
         <exec command="cd ${builddir}/tmp/Captcha; git checkout v1.0.0" />
         <exec command="mv ${builddir}/tmp/Captcha/src/modules/Captcha ${packagepath}/modules" />
-
-        <exec command="git clone git://github.com/zikula-modules/EZComments ${builddir}/tmp/EZComments" />
-        <exec command="cd ${builddir}/tmp/EZComments; git checkout release-3.0" />
-        <exec command="mv ${builddir}/tmp/EZComments/src/modules/EZComments ${packagepath}/modules" />
 
         <!-- exec command="cd ${packagepath}; find -type d -iname .git | xargs rm -rf" / -->
 
