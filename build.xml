@@ -79,7 +79,7 @@
         <exec command="rm -rf ${packagepath}/modules/Scribite/plugins/Aloha" />
         <exec command="rm -rf ${packagepath}/modules/Scribite/plugins/CKEditor" />
         <exec command="rm -rf ${packagepath}/modules/Scribite/plugins/MarkItUp" />
-        <exec command="rm -rf ${packagepath}/modules/Scribite/plugins/NiceEdit" />
+        <exec command="rm -rf ${packagepath}/modules/Scribite/plugins/NicEdit" />
         <exec command="rm -rf ${packagepath}/modules/Scribite/plugins/WYMeditor" />
         <exec command="rm -rf ${packagepath}/modules/Scribite/plugins/Wysihtml5" />
         <exec command="rm -rf ${packagepath}/modules/Scribite/plugins/Xinha" />
