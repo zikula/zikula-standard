@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 06, 2012 at 04:57 PM
+-- Generation Time: Oct 16, 2012 at 10:24 PM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -32,7 +32,7 @@ CREATE TABLE `admin_category` (
   `description` varchar(255) NOT NULL,
   `sortorder` int(11) NOT NULL,
   PRIMARY KEY (`cid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `admin_category`
@@ -58,7 +58,7 @@ CREATE TABLE `admin_module` (
   `sortorder` int(11) NOT NULL,
   PRIMARY KEY (`amid`),
   KEY `mid_cid` (`mid`,`cid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `admin_module`
@@ -74,16 +74,16 @@ INSERT INTO `admin_module` VALUES(7, 3, 2, 1);
 INSERT INTO `admin_module` VALUES(8, 14, 3, 2);
 INSERT INTO `admin_module` VALUES(9, 11, 6, 0);
 INSERT INTO `admin_module` VALUES(10, 4, 4, 0);
-INSERT INTO `admin_module` VALUES(11, 7, 1, 3);
-INSERT INTO `admin_module` VALUES(12, 5, 1, 4);
-INSERT INTO `admin_module` VALUES(13, 10, 4, 1);
-INSERT INTO `admin_module` VALUES(14, 18, 4, 3);
-INSERT INTO `admin_module` VALUES(15, 20, 4, 0);
-INSERT INTO `admin_module` VALUES(16, 22, 3, 3);
-INSERT INTO `admin_module` VALUES(17, 16, 2, 2);
-INSERT INTO `admin_module` VALUES(18, 15, 4, 4);
-INSERT INTO `admin_module` VALUES(19, 19, 6, 1);
-INSERT INTO `admin_module` VALUES(20, 21, 5, 0);
+INSERT INTO `admin_module` VALUES(11, 18, 4, 1);
+INSERT INTO `admin_module` VALUES(12, 7, 1, 3);
+INSERT INTO `admin_module` VALUES(13, 5, 1, 4);
+INSERT INTO `admin_module` VALUES(14, 10, 4, 2);
+INSERT INTO `admin_module` VALUES(15, 22, 4, 4);
+INSERT INTO `admin_module` VALUES(16, 17, 4, 5);
+INSERT INTO `admin_module` VALUES(17, 15, 6, 1);
+INSERT INTO `admin_module` VALUES(18, 20, 2, 0);
+INSERT INTO `admin_module` VALUES(19, 16, 4, 3);
+INSERT INTO `admin_module` VALUES(20, 19, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -108,17 +108,17 @@ CREATE TABLE `blocks` (
   `language` varchar(30) NOT NULL,
   PRIMARY KEY (`bid`),
   KEY `active_idx` (`active`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `blocks`
 --
 
-INSERT INTO `blocks` VALUES(1, 'Extmenu', 'Main menu', 'Main menu', 'a:5:{s:14:"displaymodules";s:1:"0";s:10:"stylesheet";s:11:"extmenu.css";s:8:"template";s:24:"blocks_block_extmenu.tpl";s:11:"blocktitles";a:1:{s:2:"en";s:9:"Main menu";}s:5:"links";a:1:{s:2:"en";a:5:{i:0;a:7:{s:4:"name";s:4:"Home";s:3:"url";s:10:"{homepage}";s:5:"title";s:19:"Go to the home page";s:5:"level";i:0;s:8:"parentid";N;s:5:"image";s:0:"";s:6:"active";s:1:"1";}i:1;a:7:{s:4:"name";s:14:"Administration";s:3:"url";s:24:"{Admin:admin:adminpanel}";s:5:"title";s:29:"Go to the site administration";s:5:"level";i:0;s:8:"parentid";N;s:5:"image";s:0:"";s:6:"active";s:1:"1";}i:2;a:7:{s:4:"name";s:10:"My Account";s:3:"url";s:7:"{Users}";s:5:"title";s:24:"Go to your account panel";s:5:"level";i:0;s:8:"parentid";N;s:5:"image";s:0:"";s:6:"active";s:1:"1";}i:3;a:7:{s:4:"name";s:7:"Log out";s:3:"url";s:19:"{Users:user:logout}";s:5:"title";s:20:"Log out of this site";s:5:"level";i:0;s:8:"parentid";N;s:5:"image";s:0:"";s:6:"active";s:1:"1";}i:4;a:7:{s:4:"name";s:11:"Site search";s:3:"url";s:8:"{Search}";s:5:"title";s:16:"Search this site";s:5:"level";i:0;s:8:"parentid";N;s:5:"image";s:0:"";s:6:"active";s:1:"1";}}}}', '', 3, 'a:0:{}', 1, 1, 1, 3600, '2012-10-06 13:41:55', '');
-INSERT INTO `blocks` VALUES(2, 'Search', 'Search box', 'Search block', 'a:2:{s:16:"displaySearchBtn";i:1;s:6:"active";a:4:{s:5:"Users";i:1;s:3:"Tag";i:1;s:10:"EZComments";i:1;s:4:"Clip";i:1;}}', '', 10, 'a:0:{}', 1, 1, 1, 3600, '2012-10-06 16:43:53', '');
-INSERT INTO `blocks` VALUES(3, 'Html', 'This site is powered by Zikula!', 'HTML block', '<p><a href="http://zikula.org/">Zikula</a> is a content management system (CMS) and application framework. It is secure and stable, and is a good choice for sites with a large volume of traffic.</p><p>With Zikula:</p><ul><li>you can customise all aspects of the site''s appearance through themes, with support for CSS style sheets, JavaScript, Flash and all other modern web development technologies;</li><li>you can mark content as being suitable for either a single language or for all languages, and can control all aspects of localisation and internationalisation of your site;</li><li>you can be sure that your pages will display properly in all browsers, thanks to Zikula''s full compliance with W3C HTML standards;</li><li>you get a standard application-programming interface (API) that lets you easily augment your site''s functionality through modules, blocks and other extensions;</li><li>you can get help and support from the Zikula community of webmasters and developers at <a href="http://www.zikula.org">zikula.org</a>.</li></ul><p>Enjoy using Zikula!</p><p><strong>The Zikula team</strong></p><p><em>Note: Zikula is Free Open Source Software (FOSS) licensed under the GNU General Public License.</em></p>', '', 3, 'a:0:{}', 0, 1, 1, 3600, '2012-10-06 13:41:55', '');
-INSERT INTO `blocks` VALUES(4, 'Login', 'User log-in', 'Login block', '', '', 14, 'a:0:{}', 1, 1, 1, 3600, '2012-10-06 13:41:55', '');
-INSERT INTO `blocks` VALUES(5, 'Extmenu', 'Top navigation', 'Theme navigation', 'a:5:{s:14:"displaymodules";s:1:"0";s:10:"stylesheet";s:11:"extmenu.css";s:8:"template";s:31:"blocks_block_extmenu_topnav.tpl";s:11:"blocktitles";a:1:{s:2:"en";s:14:"Top navigation";}s:5:"links";a:1:{s:2:"en";a:3:{i:0;a:7:{s:4:"name";s:4:"Home";s:3:"url";s:10:"{homepage}";s:5:"title";s:26:"Go to the site''s home page";s:5:"level";i:0;s:8:"parentid";N;s:5:"image";s:0:"";s:6:"active";s:1:"1";}i:1;a:7:{s:4:"name";s:10:"My Account";s:3:"url";s:7:"{Users}";s:5:"title";s:24:"Go to your account panel";s:5:"level";i:0;s:8:"parentid";N;s:5:"image";s:0:"";s:6:"active";s:1:"1";}i:2;a:7:{s:4:"name";s:11:"Site search";s:3:"url";s:8:"{Search}";s:5:"title";s:16:"Search this site";s:5:"level";i:0;s:8:"parentid";N;s:5:"image";s:0:"";s:6:"active";s:1:"1";}}}}', '', 3, 'a:0:{}', 1, 1, 1, 3600, '2012-10-06 13:41:55', '');
+INSERT INTO `blocks` VALUES(1, 'Extmenu', 'Main menu', 'Main menu', 'a:5:{s:14:"displaymodules";s:1:"0";s:10:"stylesheet";s:11:"extmenu.css";s:8:"template";s:24:"blocks_block_extmenu.tpl";s:11:"blocktitles";a:1:{s:2:"en";s:9:"Main menu";}s:5:"links";a:1:{s:2:"en";a:5:{i:0;a:7:{s:4:"name";s:4:"Home";s:3:"url";s:10:"{homepage}";s:5:"title";s:19:"Go to the home page";s:5:"level";i:0;s:8:"parentid";N;s:5:"image";s:0:"";s:6:"active";s:1:"1";}i:1;a:7:{s:4:"name";s:14:"Administration";s:3:"url";s:24:"{Admin:admin:adminpanel}";s:5:"title";s:29:"Go to the site administration";s:5:"level";i:0;s:8:"parentid";N;s:5:"image";s:0:"";s:6:"active";s:1:"1";}i:2;a:7:{s:4:"name";s:10:"My Account";s:3:"url";s:7:"{Users}";s:5:"title";s:24:"Go to your account panel";s:5:"level";i:0;s:8:"parentid";N;s:5:"image";s:0:"";s:6:"active";s:1:"1";}i:3;a:7:{s:4:"name";s:7:"Log out";s:3:"url";s:19:"{Users:user:logout}";s:5:"title";s:20:"Log out of this site";s:5:"level";i:0;s:8:"parentid";N;s:5:"image";s:0:"";s:6:"active";s:1:"1";}i:4;a:7:{s:4:"name";s:11:"Site search";s:3:"url";s:8:"{Search}";s:5:"title";s:16:"Search this site";s:5:"level";i:0;s:8:"parentid";N;s:5:"image";s:0:"";s:6:"active";s:1:"1";}}}}', '', 3, 'a:0:{}', 1, 1, 1, 3600, '2012-10-16 22:20:18', '');
+INSERT INTO `blocks` VALUES(2, 'Search', 'Search box', 'Search block', 'a:2:{s:16:"displaySearchBtn";i:1;s:6:"active";a:4:{s:5:"Users";i:1;s:3:"Tag";i:1;s:10:"EZComments";i:1;s:4:"Clip";i:1;}}', '', 10, 'a:0:{}', 1, 1, 1, 3600, '2012-10-16 22:21:40', '');
+INSERT INTO `blocks` VALUES(3, 'Html', 'This site is powered by Zikula!', 'HTML block', '<p><a href="http://zikula.org/">Zikula</a> is a content management system (CMS) and application framework. It is secure and stable, and is a good choice for sites with a large volume of traffic.</p><p>With Zikula:</p><ul><li>you can customise all aspects of the site''s appearance through themes, with support for CSS style sheets, JavaScript, Flash and all other modern web development technologies;</li><li>you can mark content as being suitable for either a single language or for all languages, and can control all aspects of localisation and internationalisation of your site;</li><li>you can be sure that your pages will display properly in all browsers, thanks to Zikula''s full compliance with W3C HTML standards;</li><li>you get a standard application-programming interface (API) that lets you easily augment your site''s functionality through modules, blocks and other extensions;</li><li>you can get help and support from the Zikula community of webmasters and developers at <a href="http://www.zikula.org">zikula.org</a>.</li></ul><p>Enjoy using Zikula!</p><p><strong>The Zikula team</strong></p><p><em>Note: Zikula is Free Open Source Software (FOSS) licensed under the GNU General Public License.</em></p>', '', 3, 'a:0:{}', 0, 1, 1, 3600, '2012-10-16 22:20:19', '');
+INSERT INTO `blocks` VALUES(4, 'Login', 'User log-in', 'Login block', '', '', 14, 'a:0:{}', 1, 1, 1, 3600, '2012-10-16 22:20:19', '');
+INSERT INTO `blocks` VALUES(5, 'Extmenu', 'Top navigation', 'Theme navigation', 'a:5:{s:14:"displaymodules";s:1:"0";s:10:"stylesheet";s:11:"extmenu.css";s:8:"template";s:31:"blocks_block_extmenu_topnav.tpl";s:11:"blocktitles";a:1:{s:2:"en";s:14:"Top navigation";}s:5:"links";a:1:{s:2:"en";a:3:{i:0;a:7:{s:4:"name";s:4:"Home";s:3:"url";s:10:"{homepage}";s:5:"title";s:26:"Go to the site''s home page";s:5:"level";i:0;s:8:"parentid";N;s:5:"image";s:0:"";s:6:"active";s:1:"1";}i:1;a:7:{s:4:"name";s:10:"My Account";s:3:"url";s:7:"{Users}";s:5:"title";s:24:"Go to your account panel";s:5:"level";i:0;s:8:"parentid";N;s:5:"image";s:0:"";s:6:"active";s:1:"1";}i:2;a:7:{s:4:"name";s:11:"Site search";s:3:"url";s:8:"{Search}";s:5:"title";s:16:"Search this site";s:5:"level";i:0;s:8:"parentid";N;s:5:"image";s:0:"";s:6:"active";s:1:"1";}}}}', '', 3, 'a:0:{}', 1, 1, 1, 3600, '2012-10-16 22:20:19', '');
 
 -- --------------------------------------------------------
 
@@ -132,15 +132,15 @@ CREATE TABLE `block_placements` (
   `sortorder` int(11) NOT NULL,
   PRIMARY KEY (`pid`,`bid`),
   KEY `bid_pid_idx` (`bid`,`pid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `block_placements`
 --
 
 INSERT INTO `block_placements` VALUES(1, 1, 0);
-INSERT INTO `block_placements` VALUES(3, 3, 0);
 INSERT INTO `block_placements` VALUES(2, 4, 0);
+INSERT INTO `block_placements` VALUES(3, 3, 0);
 INSERT INTO `block_placements` VALUES(7, 5, 0);
 
 -- --------------------------------------------------------
@@ -155,7 +155,7 @@ CREATE TABLE `block_positions` (
   `description` varchar(255) NOT NULL,
   PRIMARY KEY (`pid`),
   KEY `name_idx` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `block_positions`
@@ -201,55 +201,55 @@ CREATE TABLE `categories_category` (
   KEY `idx_categories_ipath` (`ipath`,`is_leaf`,`status`),
   KEY `idx_categories_status` (`status`),
   KEY `idx_categories_ipath_status` (`ipath`,`status`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10005 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10005 ;
 
 --
 -- Dumping data for table `categories_category`
 --
 
-INSERT INTO `categories_category` VALUES(1, 0, 1, 0, '__SYSTEM__', '', 1, 'b:0;', 'b:0;', '/__SYSTEM__', '/1', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(2, 1, 0, 0, 'Modules', '', 2, 'a:1:{s:2:"en";s:7:"Modules";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules', '/1/2', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(3, 1, 0, 0, 'General', '', 3, 'a:1:{s:2:"en";s:7:"General";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General', '/1/3', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(4, 3, 0, 0, 'YesNo', '', 4, 'a:1:{s:2:"en";s:6:"Yes/No";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/YesNo', '/1/3/4', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(5, 4, 0, 1, '1 - Yes', 'Y', 5, 'b:0;', 'b:0;', '/__SYSTEM__/General/YesNo/1 - Yes', '/1/3/4/5', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(6, 4, 0, 1, '2 - No', 'N', 6, 'b:0;', 'b:0;', '/__SYSTEM__/General/YesNo/2 - No', '/1/3/4/6', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(10, 3, 0, 0, 'Publication Status (extended)', '', 10, 'a:1:{s:2:"en";s:29:"Publication status (extended)";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Publication Status Extended', '/1/3/10', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(11, 10, 0, 1, 'Pending', 'P', 11, 'a:1:{s:2:"en";s:7:"Pending";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Publication Status Extended/Pending', '/1/3/10/11', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(12, 10, 0, 1, 'Checked', 'C', 12, 'a:1:{s:2:"en";s:7:"Checked";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Publication Status Extended/Checked', '/1/3/10/12', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(13, 10, 0, 1, 'Approved', 'A', 13, 'a:1:{s:2:"en";s:8:"Approved";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Publication Status Extended/Approved', '/1/3/10/13', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(14, 10, 0, 1, 'On-line', 'O', 14, 'a:1:{s:2:"en";s:7:"On-line";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Publication Status Extended/Online', '/1/3/10/14', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(15, 10, 0, 1, 'Rejected', 'R', 15, 'a:1:{s:2:"en";s:8:"Rejected";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Publication Status Extended/Rejected', '/1/3/10/15', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(16, 3, 0, 0, 'Gender', '', 16, 'a:1:{s:2:"en";s:6:"Gender";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Gender', '/1/3/16', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(17, 16, 0, 1, 'Male', 'M', 17, 'a:1:{s:2:"en";s:4:"Male";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Gender/Male', '/1/3/16/17', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(18, 16, 0, 1, 'Female', 'F', 18, 'a:1:{s:2:"en";s:6:"Female";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Gender/Female', '/1/3/16/18', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(19, 3, 0, 0, 'Title', '', 19, 'a:1:{s:2:"en";s:5:"Title";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Title', '/1/3/19', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(20, 19, 0, 1, 'Mr', 'Mr', 20, 'a:1:{s:2:"en";s:3:"Mr.";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Title/Mr', '/1/3/19/20', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(21, 19, 0, 1, 'Mrs', 'Mrs', 21, 'a:1:{s:2:"en";s:4:"Mrs.";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Title/Mrs', '/1/3/19/21', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(22, 19, 0, 1, 'Ms', 'Ms', 22, 'a:1:{s:2:"en";s:3:"Ms.";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Title/Ms', '/1/3/19/22', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(23, 19, 0, 1, 'Miss', 'Miss', 23, 'a:1:{s:2:"en";s:4:"Miss";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Title/Miss', '/1/3/19/23', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(24, 19, 0, 1, 'Dr', 'Dr', 24, 'a:1:{s:2:"en";s:3:"Dr.";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Title/Dr', '/1/3/19/24', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(25, 3, 0, 0, 'ActiveStatus', '', 25, 'a:1:{s:2:"en";s:15:"Activity status";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/ActiveStatus', '/1/3/25', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(26, 25, 0, 1, 'Active', 'A', 26, 'a:1:{s:2:"en";s:6:"Active";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/ActiveStatus/Active', '/1/3/25/26', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(27, 25, 0, 1, 'Inactive', 'I', 27, 'a:1:{s:2:"en";s:8:"Inactive";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/ActiveStatus/Inactive', '/1/3/25/27', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(28, 3, 0, 0, 'Publication status (basic)', '', 28, 'a:1:{s:2:"en";s:26:"Publication status (basic)";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Publication Status Basic', '/1/3/28', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(29, 28, 0, 1, 'Pending', 'P', 29, 'a:1:{s:2:"en";s:7:"Pending";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Publication Status Basic/Pending', '/1/3/28/29', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(30, 28, 0, 1, 'Approved', 'A', 30, 'a:1:{s:2:"en";s:8:"Approved";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Publication Status Basic/Approved', '/1/3/28/30', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(31, 1, 0, 0, 'Users', '', 31, 'a:1:{s:2:"en";s:5:"Users";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Users', '/1/31', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(32, 2, 0, 0, 'Global', '', 32, 'a:1:{s:2:"en";s:6:"Global";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global', '/1/2/32', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(33, 32, 0, 1, 'Blogging', '', 33, 'a:1:{s:2:"en";s:8:"Blogging";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global/Blogging', '/1/2/32/33', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(34, 32, 0, 1, 'Music and audio', '', 34, 'a:1:{s:2:"en";s:15:"Music and audio";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global/MusicAndAudio', '/1/2/32/34', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(35, 32, 0, 1, 'Art and photography', '', 35, 'a:1:{s:2:"en";s:19:"Art and photography";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global/ArtAndPhotography', '/1/2/32/35', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(36, 32, 0, 1, 'Writing and thinking', '', 36, 'a:1:{s:2:"en";s:20:"Writing and thinking";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global/WritingAndThinking', '/1/2/32/36', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(37, 32, 0, 1, 'Communications and media', '', 37, 'a:1:{s:2:"en";s:24:"Communications and media";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global/CommunicationsAndMedia', '/1/2/32/37', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(38, 32, 0, 1, 'Travel and culture', '', 38, 'a:1:{s:2:"en";s:18:"Travel and culture";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global/TravelAndCulture', '/1/2/32/38', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(39, 32, 0, 1, 'Science and technology', '', 39, 'a:1:{s:2:"en";s:22:"Science and technology";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global/ScienceAndTechnology', '/1/2/32/39', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(40, 32, 0, 1, 'Sport and activities', '', 40, 'a:1:{s:2:"en";s:20:"Sport and activities";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global/SportAndActivities', '/1/2/32/40', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(41, 32, 0, 1, 'Business and work', '', 41, 'a:1:{s:2:"en";s:17:"Business and work";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global/BusinessAndWork', '/1/2/32/41', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `categories_category` VALUES(10000, 2, 0, 0, 'Clip', '', 2147483647, 'a:1:{s:2:"en";s:4:"Clip";}', 'a:1:{s:2:"en";s:18:"Clip root category";}', '/__SYSTEM__/Modules/Clip', '/1/2/10000', 'A', 'A', '2012-10-06 16:43:47', 2, '2012-10-06 16:43:47', 2);
-INSERT INTO `categories_category` VALUES(10001, 10000, 0, 0, 'Topics', '', 2147483647, 'a:1:{s:2:"en";s:6:"Topics";}', 'a:1:{s:2:"en";s:32:"Clip topics for its publications";}', '/__SYSTEM__/Modules/Clip/Topics', '/1/2/10000/10001', 'A', 'A', '2012-10-06 16:43:47', 2, '2012-10-06 16:43:47', 2);
-INSERT INTO `categories_category` VALUES(10002, 10001, 0, 1, 'Zikula', '', 2147483647, 'a:1:{s:2:"en";s:6:"Zikula";}', 'a:1:{s:2:"en";s:27:"Zikula related publications";}', '/__SYSTEM__/Modules/Clip/Topics/Zikula', '/1/2/10000/10001/10002', 'A', 'A', '2012-10-06 16:43:47', 2, '2012-10-06 16:43:47', 2);
-INSERT INTO `categories_category` VALUES(10003, 10001, 0, 1, 'FreeSoftware', '', 2147483647, 'a:1:{s:2:"en";s:13:"Free Software";}', 'a:1:{s:2:"en";s:34:"Free software related publications";}', '/__SYSTEM__/Modules/Clip/Topics/FreeSoftware', '/1/2/10000/10001/10003', 'A', 'A', '2012-10-06 16:43:47', 2, '2012-10-06 16:43:47', 2);
-INSERT INTO `categories_category` VALUES(10004, 10001, 0, 1, 'Community', '', 2147483647, 'a:1:{s:2:"en";s:9:"Community";}', 'a:1:{s:2:"en";s:30:"Community related publications";}', '/__SYSTEM__/Modules/Clip/Topics/Community', '/1/2/10000/10001/10004', 'A', 'A', '2012-10-06 16:43:47', 2, '2012-10-06 16:43:47', 2);
+INSERT INTO `categories_category` VALUES(1, 0, 1, 0, '__SYSTEM__', '', 1, 'b:0;', 'b:0;', '/__SYSTEM__', '/1', 'A', 'A', '2012-10-16 22:20:22', 0, '2012-10-16 22:20:22', 0);
+INSERT INTO `categories_category` VALUES(2, 1, 0, 0, 'Modules', '', 2, 'a:1:{s:2:"en";s:7:"Modules";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules', '/1/2', 'A', 'A', '2012-10-16 22:20:22', 0, '2012-10-16 22:20:22', 0);
+INSERT INTO `categories_category` VALUES(3, 1, 0, 0, 'General', '', 3, 'a:1:{s:2:"en";s:7:"General";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General', '/1/3', 'A', 'A', '2012-10-16 22:20:22', 0, '2012-10-16 22:20:22', 0);
+INSERT INTO `categories_category` VALUES(4, 3, 0, 0, 'YesNo', '', 4, 'a:1:{s:2:"en";s:6:"Yes/No";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/YesNo', '/1/3/4', 'A', 'A', '2012-10-16 22:20:22', 0, '2012-10-16 22:20:22', 0);
+INSERT INTO `categories_category` VALUES(5, 4, 0, 1, '1 - Yes', 'Y', 5, 'b:0;', 'b:0;', '/__SYSTEM__/General/YesNo/1 - Yes', '/1/3/4/5', 'A', 'A', '2012-10-16 22:20:22', 0, '2012-10-16 22:20:22', 0);
+INSERT INTO `categories_category` VALUES(6, 4, 0, 1, '2 - No', 'N', 6, 'b:0;', 'b:0;', '/__SYSTEM__/General/YesNo/2 - No', '/1/3/4/6', 'A', 'A', '2012-10-16 22:20:22', 0, '2012-10-16 22:20:22', 0);
+INSERT INTO `categories_category` VALUES(10, 3, 0, 0, 'Publication Status (extended)', '', 10, 'a:1:{s:2:"en";s:29:"Publication status (extended)";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Publication Status Extended', '/1/3/10', 'A', 'A', '2012-10-16 22:20:22', 0, '2012-10-16 22:20:22', 0);
+INSERT INTO `categories_category` VALUES(11, 10, 0, 1, 'Pending', 'P', 11, 'a:1:{s:2:"en";s:7:"Pending";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Publication Status Extended/Pending', '/1/3/10/11', 'A', 'A', '2012-10-16 22:20:22', 0, '2012-10-16 22:20:22', 0);
+INSERT INTO `categories_category` VALUES(12, 10, 0, 1, 'Checked', 'C', 12, 'a:1:{s:2:"en";s:7:"Checked";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Publication Status Extended/Checked', '/1/3/10/12', 'A', 'A', '2012-10-16 22:20:22', 0, '2012-10-16 22:20:22', 0);
+INSERT INTO `categories_category` VALUES(13, 10, 0, 1, 'Approved', 'A', 13, 'a:1:{s:2:"en";s:8:"Approved";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Publication Status Extended/Approved', '/1/3/10/13', 'A', 'A', '2012-10-16 22:20:22', 0, '2012-10-16 22:20:22', 0);
+INSERT INTO `categories_category` VALUES(14, 10, 0, 1, 'On-line', 'O', 14, 'a:1:{s:2:"en";s:7:"On-line";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Publication Status Extended/Online', '/1/3/10/14', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(15, 10, 0, 1, 'Rejected', 'R', 15, 'a:1:{s:2:"en";s:8:"Rejected";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Publication Status Extended/Rejected', '/1/3/10/15', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(16, 3, 0, 0, 'Gender', '', 16, 'a:1:{s:2:"en";s:6:"Gender";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Gender', '/1/3/16', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(17, 16, 0, 1, 'Male', 'M', 17, 'a:1:{s:2:"en";s:4:"Male";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Gender/Male', '/1/3/16/17', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(18, 16, 0, 1, 'Female', 'F', 18, 'a:1:{s:2:"en";s:6:"Female";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Gender/Female', '/1/3/16/18', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(19, 3, 0, 0, 'Title', '', 19, 'a:1:{s:2:"en";s:5:"Title";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Title', '/1/3/19', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(20, 19, 0, 1, 'Mr', 'Mr', 20, 'a:1:{s:2:"en";s:3:"Mr.";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Title/Mr', '/1/3/19/20', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(21, 19, 0, 1, 'Mrs', 'Mrs', 21, 'a:1:{s:2:"en";s:4:"Mrs.";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Title/Mrs', '/1/3/19/21', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(22, 19, 0, 1, 'Ms', 'Ms', 22, 'a:1:{s:2:"en";s:3:"Ms.";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Title/Ms', '/1/3/19/22', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(23, 19, 0, 1, 'Miss', 'Miss', 23, 'a:1:{s:2:"en";s:4:"Miss";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Title/Miss', '/1/3/19/23', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(24, 19, 0, 1, 'Dr', 'Dr', 24, 'a:1:{s:2:"en";s:3:"Dr.";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Title/Dr', '/1/3/19/24', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(25, 3, 0, 0, 'ActiveStatus', '', 25, 'a:1:{s:2:"en";s:15:"Activity status";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/ActiveStatus', '/1/3/25', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(26, 25, 0, 1, 'Active', 'A', 26, 'a:1:{s:2:"en";s:6:"Active";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/ActiveStatus/Active', '/1/3/25/26', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(27, 25, 0, 1, 'Inactive', 'I', 27, 'a:1:{s:2:"en";s:8:"Inactive";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/ActiveStatus/Inactive', '/1/3/25/27', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(28, 3, 0, 0, 'Publication status (basic)', '', 28, 'a:1:{s:2:"en";s:26:"Publication status (basic)";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Publication Status Basic', '/1/3/28', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(29, 28, 0, 1, 'Pending', 'P', 29, 'a:1:{s:2:"en";s:7:"Pending";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Publication Status Basic/Pending', '/1/3/28/29', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(30, 28, 0, 1, 'Approved', 'A', 30, 'a:1:{s:2:"en";s:8:"Approved";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/General/Publication Status Basic/Approved', '/1/3/28/30', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(31, 1, 0, 0, 'Users', '', 31, 'a:1:{s:2:"en";s:5:"Users";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Users', '/1/31', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(32, 2, 0, 0, 'Global', '', 32, 'a:1:{s:2:"en";s:6:"Global";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global', '/1/2/32', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(33, 32, 0, 1, 'Blogging', '', 33, 'a:1:{s:2:"en";s:8:"Blogging";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global/Blogging', '/1/2/32/33', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(34, 32, 0, 1, 'Music and audio', '', 34, 'a:1:{s:2:"en";s:15:"Music and audio";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global/MusicAndAudio', '/1/2/32/34', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(35, 32, 0, 1, 'Art and photography', '', 35, 'a:1:{s:2:"en";s:19:"Art and photography";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global/ArtAndPhotography', '/1/2/32/35', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(36, 32, 0, 1, 'Writing and thinking', '', 36, 'a:1:{s:2:"en";s:20:"Writing and thinking";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global/WritingAndThinking', '/1/2/32/36', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(37, 32, 0, 1, 'Communications and media', '', 37, 'a:1:{s:2:"en";s:24:"Communications and media";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global/CommunicationsAndMedia', '/1/2/32/37', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(38, 32, 0, 1, 'Travel and culture', '', 38, 'a:1:{s:2:"en";s:18:"Travel and culture";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global/TravelAndCulture', '/1/2/32/38', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(39, 32, 0, 1, 'Science and technology', '', 39, 'a:1:{s:2:"en";s:22:"Science and technology";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global/ScienceAndTechnology', '/1/2/32/39', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(40, 32, 0, 1, 'Sport and activities', '', 40, 'a:1:{s:2:"en";s:20:"Sport and activities";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global/SportAndActivities', '/1/2/32/40', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(41, 32, 0, 1, 'Business and work', '', 41, 'a:1:{s:2:"en";s:17:"Business and work";}', 'a:1:{s:2:"en";s:0:"";}', '/__SYSTEM__/Modules/Global/BusinessAndWork', '/1/2/32/41', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `categories_category` VALUES(10000, 2, 0, 0, 'Clip', '', 2147483647, 'a:1:{s:2:"en";s:4:"Clip";}', 'a:1:{s:2:"en";s:18:"Clip root category";}', '/__SYSTEM__/Modules/Clip', '/1/2/10000', 'A', 'A', '2012-10-16 22:21:32', 2, '2012-10-16 22:21:32', 2);
+INSERT INTO `categories_category` VALUES(10001, 10000, 0, 0, 'Topics', '', 2147483647, 'a:1:{s:2:"en";s:6:"Topics";}', 'a:1:{s:2:"en";s:32:"Clip topics for its publications";}', '/__SYSTEM__/Modules/Clip/Topics', '/1/2/10000/10001', 'A', 'A', '2012-10-16 22:21:32', 2, '2012-10-16 22:21:32', 2);
+INSERT INTO `categories_category` VALUES(10002, 10001, 0, 1, 'Zikula', '', 2147483647, 'a:1:{s:2:"en";s:6:"Zikula";}', 'a:1:{s:2:"en";s:27:"Zikula related publications";}', '/__SYSTEM__/Modules/Clip/Topics/Zikula', '/1/2/10000/10001/10002', 'A', 'A', '2012-10-16 22:21:32', 2, '2012-10-16 22:21:32', 2);
+INSERT INTO `categories_category` VALUES(10003, 10001, 0, 1, 'FreeSoftware', '', 2147483647, 'a:1:{s:2:"en";s:13:"Free Software";}', 'a:1:{s:2:"en";s:34:"Free software related publications";}', '/__SYSTEM__/Modules/Clip/Topics/FreeSoftware', '/1/2/10000/10001/10003', 'A', 'A', '2012-10-16 22:21:32', 2, '2012-10-16 22:21:32', 2);
+INSERT INTO `categories_category` VALUES(10004, 10001, 0, 1, 'Community', '', 2147483647, 'a:1:{s:2:"en";s:9:"Community";}', 'a:1:{s:2:"en";s:30:"Community related publications";}', '/__SYSTEM__/Modules/Clip/Topics/Community', '/1/2/10000/10001/10004', 'A', 'A', '2012-10-16 22:21:33', 2, '2012-10-16 22:21:33', 2);
 
 -- --------------------------------------------------------
 
@@ -268,7 +268,7 @@ CREATE TABLE `categories_mapmeta` (
   `lu_uid` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `idx_categories_mapmeta` (`meta_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -292,7 +292,7 @@ CREATE TABLE `categories_mapobj` (
   `lu_uid` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `idx_categories_mapobj` (`modname`,`tablename`,`obj_id`,`obj_idcolumn`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -313,14 +313,14 @@ CREATE TABLE `categories_registry` (
   `lu_uid` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `idx_categories_registry` (`modname`,`tablename`,`property`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `categories_registry`
 --
 
-INSERT INTO `categories_registry` VALUES(1, 'Clip', 'clip_pubtypes', 'Global', 32, 'A', '2012-10-06 16:43:47', 2, '2012-10-06 16:43:47', 2);
-INSERT INTO `categories_registry` VALUES(2, 'Clip', 'clip_pubtypes', 'Topics', 10001, 'A', '2012-10-06 16:43:47', 2, '2012-10-06 16:43:47', 2);
+INSERT INTO `categories_registry` VALUES(1, 'Clip', 'clip_pubtypes', 'Global', 32, 'A', '2012-10-16 22:21:32', 2, '2012-10-16 22:21:32', 2);
+INSERT INTO `categories_registry` VALUES(2, 'Clip', 'clip_pubtypes', 'Topics', 10001, 'A', '2012-10-16 22:21:33', 2, '2012-10-16 22:21:33', 2);
 
 -- --------------------------------------------------------
 
@@ -337,7 +337,7 @@ CREATE TABLE `clip_grouptypes` (
   `rgt` int(11) DEFAULT NULL,
   `level` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`gid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `clip_grouptypes`
@@ -377,13 +377,13 @@ CREATE TABLE `clip_pubdata1` (
   `field4` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `urltitle_index` (`urltitle`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `clip_pubdata1`
 --
 
-INSERT INTO `clip_pubdata1` VALUES(1, 1, 'hello-world', 2, 24, '', 3, 1, 0, 1, 0, '2011-01-01 00:00:00', NULL, 'A', '2012-10-06 16:43:49', 2, '2012-10-06 16:43:49', 2, 'Hello world!', '<p> This is an example of a Blog post, edit or delete it, and start to publish!\n</p>\n<p>You will find that with your customization of the autogenerated templates, Clip will be able to fulfil your expectatives. Enjoy\n</p>\n<p>(this is pre-release content, to be enriched with users’ feedback)\n</p>', '', 0);
+INSERT INTO `clip_pubdata1` VALUES(1, 1, 'hello-world', 2, 21, '', 3, 1, 0, 1, 0, '2011-01-01 00:00:00', NULL, 'A', '2012-10-16 22:21:36', 2, '2012-10-16 22:21:36', 2, 'Hello world!', '<p> This is an example of a Blog post, edit or delete it, and start to publish!\n</p>\n<p>You will find that with your customization of the autogenerated templates, Clip will be able to fulfil your expectatives. Enjoy\n</p>\n<p>(this is pre-release content, to be enriched with users’ feedback)\n</p>', '', 0);
 
 -- --------------------------------------------------------
 
@@ -416,14 +416,14 @@ CREATE TABLE `clip_pubdata2` (
   `field8` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `urltitle_index` (`urltitle`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `clip_pubdata2`
 --
 
-INSERT INTO `clip_pubdata2` VALUES(1, 1, 'about-clip-static-pages', 2, 17, '', 3, 1, 0, 1, 0, '2011-01-01 00:00:00', NULL, 'A', '2012-10-06 16:43:52', 2, '2012-10-06 16:43:52', 2, 'About Clip Static Pages', 0, '<p>As you may know, Clip can handle multiple purpose applications through its publication types. This default Pages publication type shows how it can be useful to manage the static pages of your site.\n</p>\n<p>The default fields defined are as follows:\n</p>\n<ul>\n  <li>a title (string),</li>\n  <li>the page''s content (text),</li>\n  <li>a category (list),</li>\n  <li>and even a config option (checkbox)</li>\n</ul>\n<p>The default templates are examples of how you can structure your publication type to fit your needs, in this case, a three step navigation: initially showing a list with the available categories (list.tpl), to present a list with the available pages inside one of them (list_category.tpl), and finally display the page (display.tpl).\n</p>\n<p> The list_category.tpl template has some logic on it to resolve the title depending on the filter used.\n  <br />\n</p>\n<p>The edit form is also customized to look pretty like the one of the Pages module.\n</p>\n<p>Hope that his example be useful to you.\n  <br /> Enjoy the possibilities!\n</p>\n<p>(this is pre-release content, to be enriched with users’ feedback)\n</p>', 1);
-INSERT INTO `clip_pubdata2` VALUES(2, 2, 'about-us', 2, 3, '', 0, 1, 0, 1, 0, '2011-01-01 00:00:00', NULL, 'A', '2012-10-06 16:43:52', 2, '2012-10-06 16:43:52', 2, 'About Us', 0, '<p>This is a temptative About Us page for your site.</p>\n\n<p>You can enrich it easily with the help of Scribite and its WYSIWYG editors. By default, the content (a text field) have enabled the use of Scribite on its config, but it requires the module installed on the site to work.</p>', 1);
+INSERT INTO `clip_pubdata2` VALUES(1, 1, 'about-clip-static-pages', 2, 17, '', 3, 1, 0, 1, 0, '2011-01-01 00:00:00', NULL, 'A', '2012-10-16 22:21:39', 2, '2012-10-16 22:21:39', 2, 'About Clip Static Pages', 0, '<p>As you may know, Clip can handle multiple purpose applications through its publication types. This default Pages publication type shows how it can be useful to manage the static pages of your site.\n</p>\n<p>The default fields defined are as follows:\n</p>\n<ul>\n  <li>a title (string),</li>\n  <li>the page''s content (text),</li>\n  <li>a category (list),</li>\n  <li>and even a config option (checkbox)</li>\n</ul>\n<p>The default templates are examples of how you can structure your publication type to fit your needs, in this case, a three step navigation: initially showing a list with the available categories (list.tpl), to present a list with the available pages inside one of them (list_category.tpl), and finally display the page (display.tpl).\n</p>\n<p> The list_category.tpl template has some logic on it to resolve the title depending on the filter used.\n  <br />\n</p>\n<p>The edit form is also customized to look pretty like the one of the Pages module.\n</p>\n<p>Hope that his example be useful to you.\n  <br /> Enjoy the possibilities!\n</p>\n<p>(this is pre-release content, to be enriched with users’ feedback)\n</p>', 1);
+INSERT INTO `clip_pubdata2` VALUES(2, 2, 'about-us', 2, 3, '', 0, 1, 0, 1, 0, '2011-01-01 00:00:00', NULL, 'A', '2012-10-16 22:21:39', 2, '2012-10-16 22:21:39', 2, 'About Us', 0, '<p>This is a temptative About Us page for your site.</p>\n\n<p>You can enrich it easily with the help of Scribite and its WYSIWYG editors. By default, the content (a text field) have enabled the use of Scribite on its config, but it requires the module installed on the site to work.</p>', 1);
 
 -- --------------------------------------------------------
 
@@ -454,20 +454,20 @@ CREATE TABLE `clip_pubfields` (
   `lu_date` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
   `lu_uid` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `clip_pubfields`
 --
 
-INSERT INTO `clip_pubfields` VALUES(1, 1, 'title', 'Title', 'Enter title here', 'String', '', 'C(255)', NULL, 1, 1, 1, 1, 1, 0, 0, 'A', '2012-10-06 16:43:48', 2, '2012-10-06 16:43:48', 2);
-INSERT INTO `clip_pubfields` VALUES(2, 1, 'content', 'Content', '', 'Text', '1', 'C(65535)', NULL, 2, 0, 0, 1, 0, 0, 0, 'A', '2012-10-06 16:43:48', 2, '2012-10-06 16:43:48', 2);
-INSERT INTO `clip_pubfields` VALUES(3, 1, 'summary', 'Summary', 'Optional hand-crafted summary of your content that can be used in your templates.', 'Text', '0', 'C(65535)', NULL, 3, 0, 0, 0, 0, 0, 0, 'A', '2012-10-06 16:43:48', 2, '2012-10-06 16:43:48', 2);
-INSERT INTO `clip_pubfields` VALUES(4, 1, 'category', 'Category', '', 'List', ',1,0', 'I4', NULL, 4, 0, 0, 0, 1, 0, 0, 'A', '2012-10-06 16:43:48', 2, '2012-10-06 16:43:48', 2);
-INSERT INTO `clip_pubfields` VALUES(5, 2, 'title', 'Title', '', 'String', '', 'C(255)', NULL, 1, 1, 1, 1, 1, 0, 0, 'A', '2012-10-06 16:43:50', 2, '2012-10-06 16:43:50', 2);
-INSERT INTO `clip_pubfields` VALUES(6, 2, 'category', 'Category', '', 'List', ',1,0', 'I4', NULL, 2, 0, 0, 0, 1, 0, 0, 'A', '2012-10-06 16:43:50', 2, '2012-10-06 16:43:50', 2);
-INSERT INTO `clip_pubfields` VALUES(7, 2, 'content', 'Content', '', 'Text', '1', 'C(65535)', NULL, 3, 0, 0, 1, 0, 0, 0, 'A', '2012-10-06 16:43:50', 2, '2012-10-06 16:43:50', 2);
-INSERT INTO `clip_pubfields` VALUES(8, 2, 'displayinfo', 'Display page information', '', 'Checkbox', '', 'L', NULL, 4, 0, 0, 0, 0, 0, 0, 'A', '2012-10-06 16:43:50', 2, '2012-10-06 16:43:50', 2);
+INSERT INTO `clip_pubfields` VALUES(1, 1, 'title', 'Title', 'Enter title here', 'String', '', 'C(255)', NULL, 1, 1, 1, 1, 1, 0, 0, 'A', '2012-10-16 22:21:34', 2, '2012-10-16 22:21:34', 2);
+INSERT INTO `clip_pubfields` VALUES(2, 1, 'content', 'Content', '', 'Text', '1', 'C(65535)', NULL, 2, 0, 0, 1, 0, 0, 0, 'A', '2012-10-16 22:21:34', 2, '2012-10-16 22:21:34', 2);
+INSERT INTO `clip_pubfields` VALUES(3, 1, 'summary', 'Summary', 'Optional hand-crafted summary of your content that can be used in your templates.', 'Text', '0', 'C(65535)', NULL, 3, 0, 0, 0, 0, 0, 0, 'A', '2012-10-16 22:21:34', 2, '2012-10-16 22:21:34', 2);
+INSERT INTO `clip_pubfields` VALUES(4, 1, 'category', 'Category', '', 'List', ',1,0', 'I4', NULL, 4, 0, 0, 0, 1, 0, 0, 'A', '2012-10-16 22:21:34', 2, '2012-10-16 22:21:34', 2);
+INSERT INTO `clip_pubfields` VALUES(5, 2, 'title', 'Title', '', 'String', '', 'C(255)', NULL, 1, 1, 1, 1, 1, 0, 0, 'A', '2012-10-16 22:21:37', 2, '2012-10-16 22:21:37', 2);
+INSERT INTO `clip_pubfields` VALUES(6, 2, 'category', 'Category', '', 'List', ',1,0', 'I4', NULL, 2, 0, 0, 0, 1, 0, 0, 'A', '2012-10-16 22:21:37', 2, '2012-10-16 22:21:37', 2);
+INSERT INTO `clip_pubfields` VALUES(7, 2, 'content', 'Content', '', 'Text', '1', 'C(65535)', NULL, 3, 0, 0, 1, 0, 0, 0, 'A', '2012-10-16 22:21:37', 2, '2012-10-16 22:21:37', 2);
+INSERT INTO `clip_pubfields` VALUES(8, 2, 'displayinfo', 'Display page information', '', 'Checkbox', '', 'L', NULL, 4, 0, 0, 0, 0, 0, 0, 'A', '2012-10-16 22:21:37', 2, '2012-10-16 22:21:37', 2);
 
 -- --------------------------------------------------------
 
@@ -502,14 +502,14 @@ CREATE TABLE `clip_pubtypes` (
   `lu_date` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
   `lu_uid` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`tid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `clip_pubtypes`
 --
 
-INSERT INTO `clip_pubtypes` VALUES(1, 'Blog', 'blog', 'Express yourself!', NULL, '', 10, 0, '', 0, '', 0, '', 0, 0, 0, 'blog', 'standard.xml', 2, 'a:3:{s:4:"view";a:6:{s:4:"load";b:0;s:7:"onlyown";b:1;s:11:"processrefs";b:0;s:9:"checkperm";b:0;s:13:"handleplugins";b:0;s:12:"loadworkflow";b:0;}s:7:"display";a:6:{s:4:"load";b:1;s:7:"onlyown";b:1;s:11:"processrefs";b:1;s:9:"checkperm";b:1;s:13:"handleplugins";b:0;s:12:"loadworkflow";b:0;}s:4:"edit";a:1:{s:7:"onlyown";b:1;}}', 'A', '2012-10-06 16:43:47', 2, '2012-10-06 16:43:47', 2);
-INSERT INTO `clip_pubtypes` VALUES(2, 'Pages', 'staticpages', 'Static pages of the site', NULL, '', 25, 0, '', 0, '', 0, '', 0, 0, 0, 'pages', 'none.xml', 2, 'a:3:{s:4:"view";a:6:{s:4:"load";b:0;s:7:"onlyown";b:1;s:11:"processrefs";b:0;s:9:"checkperm";b:0;s:13:"handleplugins";b:0;s:12:"loadworkflow";b:0;}s:7:"display";a:6:{s:4:"load";b:0;s:7:"onlyown";b:1;s:11:"processrefs";b:1;s:9:"checkperm";b:1;s:13:"handleplugins";b:0;s:12:"loadworkflow";b:0;}s:4:"edit";a:1:{s:7:"onlyown";b:1;}}', 'A', '2012-10-06 16:43:50', 2, '2012-10-06 16:43:50', 2);
+INSERT INTO `clip_pubtypes` VALUES(1, 'Blog', 'blog', 'Express yourself!', NULL, '', 10, 0, '', 0, '', 0, '', 0, 0, 0, 'blog', 'standard.xml', 2, 'a:3:{s:4:"view";a:6:{s:4:"load";b:0;s:7:"onlyown";b:1;s:11:"processrefs";b:0;s:9:"checkperm";b:0;s:13:"handleplugins";b:0;s:12:"loadworkflow";b:0;}s:7:"display";a:6:{s:4:"load";b:1;s:7:"onlyown";b:1;s:11:"processrefs";b:1;s:9:"checkperm";b:1;s:13:"handleplugins";b:0;s:12:"loadworkflow";b:0;}s:4:"edit";a:1:{s:7:"onlyown";b:1;}}', 'A', '2012-10-16 22:21:33', 2, '2012-10-16 22:21:33', 2);
+INSERT INTO `clip_pubtypes` VALUES(2, 'Pages', 'staticpages', 'Static pages of the site', NULL, '', 25, 0, '', 0, '', 0, '', 0, 0, 0, 'pages', 'none.xml', 2, 'a:3:{s:4:"view";a:6:{s:4:"load";b:0;s:7:"onlyown";b:1;s:11:"processrefs";b:0;s:9:"checkperm";b:0;s:13:"handleplugins";b:0;s:12:"loadworkflow";b:0;}s:7:"display";a:6:{s:4:"load";b:0;s:7:"onlyown";b:1;s:11:"processrefs";b:1;s:9:"checkperm";b:1;s:13:"handleplugins";b:0;s:12:"loadworkflow";b:0;}s:4:"edit";a:1:{s:7:"onlyown";b:1;}}', 'A', '2012-10-16 22:21:37', 2, '2012-10-16 22:21:37', 2);
 
 -- --------------------------------------------------------
 
@@ -529,7 +529,7 @@ CREATE TABLE `clip_relations` (
   `title2` varchar(100) DEFAULT NULL,
   `desc2` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -544,7 +544,7 @@ CREATE TABLE `clip_workflowvars` (
   `setting` varchar(255) NOT NULL DEFAULT '',
   `value` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -576,7 +576,7 @@ CREATE TABLE `ezcomments` (
   KEY `objectid` (`objectid`),
   KEY `uid` (`uid`),
   KEY `ownerid` (`owneruid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -596,7 +596,7 @@ CREATE TABLE `groups` (
   `link` int(11) NOT NULL DEFAULT '0',
   `uidmaster` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`gid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `groups`
@@ -618,7 +618,7 @@ CREATE TABLE `group_applications` (
   `application` longtext NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`app_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -630,7 +630,7 @@ CREATE TABLE `group_membership` (
   `gid` int(11) NOT NULL DEFAULT '0',
   `uid` int(11) NOT NULL DEFAULT '0',
   KEY `gid_uid` (`uid`,`gid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `group_membership`
@@ -656,7 +656,7 @@ CREATE TABLE `group_perms` (
   `level` int(11) NOT NULL DEFAULT '0',
   `bond` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`pid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `group_perms`
@@ -688,7 +688,7 @@ CREATE TABLE `hooks` (
   PRIMARY KEY (`id`),
   KEY `smodule` (`smodule`),
   KEY `smodule_tmodule` (`smodule`,`tmodule`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -705,7 +705,7 @@ CREATE TABLE `hook_area` (
   `areaname` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `areaidx` (`areaname`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `hook_area`
@@ -719,11 +719,11 @@ INSERT INTO `hook_area` VALUES(5, 'Tag', NULL, 'p', 'ui_hooks', 'provider.tag.ui
 INSERT INTO `hook_area` VALUES(6, 'EZComments', NULL, 's', 'ui_hooks', 'subscriber.ezcomments.ui_hooks.comments');
 INSERT INTO `hook_area` VALUES(7, 'EZComments', NULL, 's', 'filter_hooks', 'subscriber.ezcomments.filter_hooks.comments');
 INSERT INTO `hook_area` VALUES(8, 'EZComments', NULL, 'p', 'ui_hooks', 'provider.ezcomments.ui_hooks.comments');
-INSERT INTO `hook_area` VALUES(9, 'Clip', NULL, 's', 'ui_hooks', 'subscriber.clip.ui_hooks.pubtype1');
-INSERT INTO `hook_area` VALUES(10, 'Clip', NULL, 's', 'filter_hooks', 'subscriber.clip.filter_hooks.pubtype1');
-INSERT INTO `hook_area` VALUES(11, 'Clip', NULL, 's', 'ui_hooks', 'subscriber.clip.ui_hooks.pubtype2');
-INSERT INTO `hook_area` VALUES(12, 'Clip', NULL, 's', 'filter_hooks', 'subscriber.clip.filter_hooks.pubtype2');
-INSERT INTO `hook_area` VALUES(13, 'Captcha', NULL, 'p', 'ui_hooks', 'provider.captcha.ui_hooks.service');
+INSERT INTO `hook_area` VALUES(9, 'Captcha', NULL, 'p', 'ui_hooks', 'provider.captcha.ui_hooks.service');
+INSERT INTO `hook_area` VALUES(10, 'Clip', NULL, 's', 'ui_hooks', 'subscriber.clip.ui_hooks.pubtype1');
+INSERT INTO `hook_area` VALUES(11, 'Clip', NULL, 's', 'filter_hooks', 'subscriber.clip.filter_hooks.pubtype1');
+INSERT INTO `hook_area` VALUES(12, 'Clip', NULL, 's', 'ui_hooks', 'subscriber.clip.ui_hooks.pubtype2');
+INSERT INTO `hook_area` VALUES(13, 'Clip', NULL, 's', 'filter_hooks', 'subscriber.clip.filter_hooks.pubtype2');
 
 -- --------------------------------------------------------
 
@@ -743,15 +743,15 @@ CREATE TABLE `hook_binding` (
   `sortorder` smallint(6) NOT NULL DEFAULT '999',
   PRIMARY KEY (`id`),
   KEY `sortidx` (`sareaid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `hook_binding`
 --
 
-INSERT INTO `hook_binding` VALUES(1, 'Clip', NULL, 'EZComments', NULL, 9, 8, 'ui_hooks', 999);
-INSERT INTO `hook_binding` VALUES(2, 'Clip', NULL, 'Tag', NULL, 9, 5, 'ui_hooks', 999);
-INSERT INTO `hook_binding` VALUES(3, 'EZComments', NULL, 'Captcha', NULL, 6, 13, 'ui_hooks', 999);
+INSERT INTO `hook_binding` VALUES(1, 'Clip', NULL, 'EZComments', NULL, 10, 8, 'ui_hooks', 999);
+INSERT INTO `hook_binding` VALUES(2, 'Clip', NULL, 'Tag', NULL, 10, 5, 'ui_hooks', 999);
+INSERT INTO `hook_binding` VALUES(3, 'EZComments', NULL, 'Captcha', NULL, 6, 9, 'ui_hooks', 999);
 
 -- --------------------------------------------------------
 
@@ -771,7 +771,7 @@ CREATE TABLE `hook_provider` (
   `serviceid` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nameidx` (`pareaid`,`hooktype`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `hook_provider`
@@ -785,8 +785,8 @@ INSERT INTO `hook_provider` VALUES(5, 'Tag', NULL, 5, 'process_delete', 'ui_hook
 INSERT INTO `hook_provider` VALUES(6, 'EZComments', NULL, 8, 'display_view', 'ui_hooks', 'EZComments_HookHandlers', 'uiView', 'ezcomments.hooks.comments');
 INSERT INTO `hook_provider` VALUES(7, 'EZComments', NULL, 8, 'process_edit', 'ui_hooks', 'EZComments_HookHandlers', 'processEdit', 'ezcomments.hooks.comments');
 INSERT INTO `hook_provider` VALUES(8, 'EZComments', NULL, 8, 'process_delete', 'ui_hooks', 'EZComments_HookHandlers', 'processDelete', 'ezcomments.hooks.comments');
-INSERT INTO `hook_provider` VALUES(9, 'Captcha', NULL, 13, 'form_edit', 'ui_hooks', 'Captcha_HookHandlers', 'uiEdit', 'captcha.service');
-INSERT INTO `hook_provider` VALUES(10, 'Captcha', NULL, 13, 'validate_edit', 'ui_hooks', 'Captcha_HookHandlers', 'validateEdit', 'captcha.service');
+INSERT INTO `hook_provider` VALUES(9, 'Captcha', NULL, 9, 'form_edit', 'ui_hooks', 'Captcha_HookHandlers', 'uiEdit', 'captcha.service');
+INSERT INTO `hook_provider` VALUES(10, 'Captcha', NULL, 9, 'validate_edit', 'ui_hooks', 'Captcha_HookHandlers', 'validateEdit', 'captcha.service');
 
 -- --------------------------------------------------------
 
@@ -808,22 +808,22 @@ CREATE TABLE `hook_runtime` (
   `serviceid` varchar(60) DEFAULT NULL,
   `priority` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `hook_runtime`
 --
 
-INSERT INTO `hook_runtime` VALUES(12, 'EZComments', NULL, 'Captcha', NULL, 6, 13, 'ezcomments.ui_hooks.comments.form_edit', 'Captcha_HookHandlers', 'uiEdit', 'captcha.service', 10);
-INSERT INTO `hook_runtime` VALUES(13, 'EZComments', NULL, 'Captcha', NULL, 6, 13, 'ezcomments.ui_hooks.comments.validate_edit', 'Captcha_HookHandlers', 'validateEdit', 'captcha.service', 10);
-INSERT INTO `hook_runtime` VALUES(14, 'Clip', NULL, 'EZComments', NULL, 9, 8, 'clip.ui_hooks.pubtype1.display_view', 'EZComments_HookHandlers', 'uiView', 'ezcomments.hooks.comments', 10);
-INSERT INTO `hook_runtime` VALUES(15, 'Clip', NULL, 'EZComments', NULL, 9, 8, 'clip.ui_hooks.pubtype1.process_edit', 'EZComments_HookHandlers', 'processEdit', 'ezcomments.hooks.comments', 10);
-INSERT INTO `hook_runtime` VALUES(16, 'Clip', NULL, 'EZComments', NULL, 9, 8, 'clip.ui_hooks.pubtype1.process_delete', 'EZComments_HookHandlers', 'processDelete', 'ezcomments.hooks.comments', 10);
-INSERT INTO `hook_runtime` VALUES(17, 'Clip', NULL, 'Tag', NULL, 9, 5, 'clip.ui_hooks.pubtype1.display_view', 'Tag_HookHandlers', 'uiView', 'tag.service', 10);
-INSERT INTO `hook_runtime` VALUES(18, 'Clip', NULL, 'Tag', NULL, 9, 5, 'clip.ui_hooks.pubtype1.form_edit', 'Tag_HookHandlers', 'uiEdit', 'tag.service', 10);
-INSERT INTO `hook_runtime` VALUES(19, 'Clip', NULL, 'Tag', NULL, 9, 5, 'clip.ui_hooks.pubtype1.validate_edit', 'Tag_HookHandlers', 'validateEdit', 'tag.service', 10);
-INSERT INTO `hook_runtime` VALUES(20, 'Clip', NULL, 'Tag', NULL, 9, 5, 'clip.ui_hooks.pubtype1.process_edit', 'Tag_HookHandlers', 'processEdit', 'tag.service', 10);
-INSERT INTO `hook_runtime` VALUES(21, 'Clip', NULL, 'Tag', NULL, 9, 5, 'clip.ui_hooks.pubtype1.process_delete', 'Tag_HookHandlers', 'processDelete', 'tag.service', 10);
+INSERT INTO `hook_runtime` VALUES(12, 'EZComments', NULL, 'Captcha', NULL, 6, 9, 'ezcomments.ui_hooks.comments.form_edit', 'Captcha_HookHandlers', 'uiEdit', 'captcha.service', 10);
+INSERT INTO `hook_runtime` VALUES(13, 'EZComments', NULL, 'Captcha', NULL, 6, 9, 'ezcomments.ui_hooks.comments.validate_edit', 'Captcha_HookHandlers', 'validateEdit', 'captcha.service', 10);
+INSERT INTO `hook_runtime` VALUES(14, 'Clip', NULL, 'EZComments', NULL, 10, 8, 'clip.ui_hooks.pubtype1.display_view', 'EZComments_HookHandlers', 'uiView', 'ezcomments.hooks.comments', 10);
+INSERT INTO `hook_runtime` VALUES(15, 'Clip', NULL, 'EZComments', NULL, 10, 8, 'clip.ui_hooks.pubtype1.process_edit', 'EZComments_HookHandlers', 'processEdit', 'ezcomments.hooks.comments', 10);
+INSERT INTO `hook_runtime` VALUES(16, 'Clip', NULL, 'EZComments', NULL, 10, 8, 'clip.ui_hooks.pubtype1.process_delete', 'EZComments_HookHandlers', 'processDelete', 'ezcomments.hooks.comments', 10);
+INSERT INTO `hook_runtime` VALUES(17, 'Clip', NULL, 'Tag', NULL, 10, 5, 'clip.ui_hooks.pubtype1.display_view', 'Tag_HookHandlers', 'uiView', 'tag.service', 10);
+INSERT INTO `hook_runtime` VALUES(18, 'Clip', NULL, 'Tag', NULL, 10, 5, 'clip.ui_hooks.pubtype1.form_edit', 'Tag_HookHandlers', 'uiEdit', 'tag.service', 10);
+INSERT INTO `hook_runtime` VALUES(19, 'Clip', NULL, 'Tag', NULL, 10, 5, 'clip.ui_hooks.pubtype1.validate_edit', 'Tag_HookHandlers', 'validateEdit', 'tag.service', 10);
+INSERT INTO `hook_runtime` VALUES(20, 'Clip', NULL, 'Tag', NULL, 10, 5, 'clip.ui_hooks.pubtype1.process_edit', 'Tag_HookHandlers', 'processEdit', 'tag.service', 10);
+INSERT INTO `hook_runtime` VALUES(21, 'Clip', NULL, 'Tag', NULL, 10, 5, 'clip.ui_hooks.pubtype1.process_delete', 'Tag_HookHandlers', 'processDelete', 'tag.service', 10);
 
 -- --------------------------------------------------------
 
@@ -841,7 +841,7 @@ CREATE TABLE `hook_subscriber` (
   `eventname` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `myindex` (`eventname`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=45 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=45 ;
 
 --
 -- Dumping data for table `hook_subscriber`
@@ -875,22 +875,22 @@ INSERT INTO `hook_subscriber` VALUES(25, 'EZComments', NULL, 6, 'validate_delete
 INSERT INTO `hook_subscriber` VALUES(26, 'EZComments', NULL, 6, 'process_edit', 'ui_hooks', 'ezcomments.ui_hooks.comments.process_edit');
 INSERT INTO `hook_subscriber` VALUES(27, 'EZComments', NULL, 6, 'process_delete', 'ui_hooks', 'ezcomments.ui_hooks.comments.process_delete');
 INSERT INTO `hook_subscriber` VALUES(28, 'EZComments', NULL, 7, 'filter', 'filter_hooks', 'ezcomments.filter_hooks.comments.filter');
-INSERT INTO `hook_subscriber` VALUES(29, 'Clip', NULL, 9, 'display_view', 'ui_hooks', 'clip.ui_hooks.pubtype1.display_view');
-INSERT INTO `hook_subscriber` VALUES(30, 'Clip', NULL, 9, 'form_edit', 'ui_hooks', 'clip.ui_hooks.pubtype1.form_edit');
-INSERT INTO `hook_subscriber` VALUES(31, 'Clip', NULL, 9, 'form_delete', 'ui_hooks', 'clip.ui_hooks.pubtype1.form_delete');
-INSERT INTO `hook_subscriber` VALUES(32, 'Clip', NULL, 9, 'validate_edit', 'ui_hooks', 'clip.ui_hooks.pubtype1.validate_edit');
-INSERT INTO `hook_subscriber` VALUES(33, 'Clip', NULL, 9, 'validate_delete', 'ui_hooks', 'clip.ui_hooks.pubtype1.validate_delete');
-INSERT INTO `hook_subscriber` VALUES(34, 'Clip', NULL, 9, 'process_edit', 'ui_hooks', 'clip.ui_hooks.pubtype1.process_edit');
-INSERT INTO `hook_subscriber` VALUES(35, 'Clip', NULL, 9, 'process_delete', 'ui_hooks', 'clip.ui_hooks.pubtype1.process_delete');
-INSERT INTO `hook_subscriber` VALUES(36, 'Clip', NULL, 10, 'filter', 'filter_hooks', 'clip.filter_hooks.pubtype1.filter');
-INSERT INTO `hook_subscriber` VALUES(37, 'Clip', NULL, 11, 'display_view', 'ui_hooks', 'clip.ui_hooks.pubtype2.display_view');
-INSERT INTO `hook_subscriber` VALUES(38, 'Clip', NULL, 11, 'form_edit', 'ui_hooks', 'clip.ui_hooks.pubtype2.form_edit');
-INSERT INTO `hook_subscriber` VALUES(39, 'Clip', NULL, 11, 'form_delete', 'ui_hooks', 'clip.ui_hooks.pubtype2.form_delete');
-INSERT INTO `hook_subscriber` VALUES(40, 'Clip', NULL, 11, 'validate_edit', 'ui_hooks', 'clip.ui_hooks.pubtype2.validate_edit');
-INSERT INTO `hook_subscriber` VALUES(41, 'Clip', NULL, 11, 'validate_delete', 'ui_hooks', 'clip.ui_hooks.pubtype2.validate_delete');
-INSERT INTO `hook_subscriber` VALUES(42, 'Clip', NULL, 11, 'process_edit', 'ui_hooks', 'clip.ui_hooks.pubtype2.process_edit');
-INSERT INTO `hook_subscriber` VALUES(43, 'Clip', NULL, 11, 'process_delete', 'ui_hooks', 'clip.ui_hooks.pubtype2.process_delete');
-INSERT INTO `hook_subscriber` VALUES(44, 'Clip', NULL, 12, 'filter', 'filter_hooks', 'clip.filter_hooks.pubtype2.filter');
+INSERT INTO `hook_subscriber` VALUES(29, 'Clip', NULL, 10, 'display_view', 'ui_hooks', 'clip.ui_hooks.pubtype1.display_view');
+INSERT INTO `hook_subscriber` VALUES(30, 'Clip', NULL, 10, 'form_edit', 'ui_hooks', 'clip.ui_hooks.pubtype1.form_edit');
+INSERT INTO `hook_subscriber` VALUES(31, 'Clip', NULL, 10, 'form_delete', 'ui_hooks', 'clip.ui_hooks.pubtype1.form_delete');
+INSERT INTO `hook_subscriber` VALUES(32, 'Clip', NULL, 10, 'validate_edit', 'ui_hooks', 'clip.ui_hooks.pubtype1.validate_edit');
+INSERT INTO `hook_subscriber` VALUES(33, 'Clip', NULL, 10, 'validate_delete', 'ui_hooks', 'clip.ui_hooks.pubtype1.validate_delete');
+INSERT INTO `hook_subscriber` VALUES(34, 'Clip', NULL, 10, 'process_edit', 'ui_hooks', 'clip.ui_hooks.pubtype1.process_edit');
+INSERT INTO `hook_subscriber` VALUES(35, 'Clip', NULL, 10, 'process_delete', 'ui_hooks', 'clip.ui_hooks.pubtype1.process_delete');
+INSERT INTO `hook_subscriber` VALUES(36, 'Clip', NULL, 11, 'filter', 'filter_hooks', 'clip.filter_hooks.pubtype1.filter');
+INSERT INTO `hook_subscriber` VALUES(37, 'Clip', NULL, 12, 'display_view', 'ui_hooks', 'clip.ui_hooks.pubtype2.display_view');
+INSERT INTO `hook_subscriber` VALUES(38, 'Clip', NULL, 12, 'form_edit', 'ui_hooks', 'clip.ui_hooks.pubtype2.form_edit');
+INSERT INTO `hook_subscriber` VALUES(39, 'Clip', NULL, 12, 'form_delete', 'ui_hooks', 'clip.ui_hooks.pubtype2.form_delete');
+INSERT INTO `hook_subscriber` VALUES(40, 'Clip', NULL, 12, 'validate_edit', 'ui_hooks', 'clip.ui_hooks.pubtype2.validate_edit');
+INSERT INTO `hook_subscriber` VALUES(41, 'Clip', NULL, 12, 'validate_delete', 'ui_hooks', 'clip.ui_hooks.pubtype2.validate_delete');
+INSERT INTO `hook_subscriber` VALUES(42, 'Clip', NULL, 12, 'process_edit', 'ui_hooks', 'clip.ui_hooks.pubtype2.process_edit');
+INSERT INTO `hook_subscriber` VALUES(43, 'Clip', NULL, 12, 'process_delete', 'ui_hooks', 'clip.ui_hooks.pubtype2.process_delete');
+INSERT INTO `hook_subscriber` VALUES(44, 'Clip', NULL, 13, 'filter', 'filter_hooks', 'clip.filter_hooks.pubtype2.filter');
 
 -- --------------------------------------------------------
 
@@ -915,7 +915,7 @@ CREATE TABLE `modules` (
   PRIMARY KEY (`id`),
   KEY `state` (`state`),
   KEY `mod_state` (`name`,`state`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `modules`
@@ -935,14 +935,14 @@ INSERT INTO `modules` VALUES(11, 'SecurityCenter', 3, 'Security Center', 'securi
 INSERT INTO `modules` VALUES(12, 'Settings', 3, 'General settings', 'settings', 'General site configuration interface.', 'Settings', '2.9.7', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', 3, 'a:1:{s:10:"Settings::";s:2:"::";}', '', '');
 INSERT INTO `modules` VALUES(13, 'Theme', 3, 'Themes', 'theme', 'Themes module to manage site layout, render and cache settings.', 'Theme', '3.4.2', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', 3, 'a:1:{s:7:"Theme::";s:12:"Theme name::";}', '', '');
 INSERT INTO `modules` VALUES(14, 'Users', 3, 'Users', 'users', 'Provides an interface for configuring and administering registered user accounts. Incorporates all needed functionality, but can work in close unison with the third party profile module configured in the general settings of the site.', 'Users', '2.2.0', 'a:4:{s:14:"authentication";a:1:{s:7:"version";s:3:"1.0";}s:15:"hook_subscriber";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', 3, 'a:2:{s:7:"Users::";s:14:"Uname::User ID";s:16:"Users::MailUsers";s:2:"::";}', '1.3.0', '');
-INSERT INTO `modules` VALUES(15, 'Clip', 2, 'Clip', 'clip', 'Dynamic content publishing platform for Zikula.', 'Clip', '0.9.3', 'a:3:{s:15:"hook_subscriber";a:2:{s:7:"enabled";b:1;s:13:"subscribe_own";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', 3, 'a:5:{s:6:"Clip::";s:2:"::";s:21:"Clip:grouptypeid:main";s:15:"tid::templateid";s:21:"Clip:grouptypeid:list";s:15:"tid::templateid";s:24:"Clip:grouptypeid:display";s:18:"tid:pid:templateid";s:21:"Clip:grouptypeid:edit";s:21:"tid:pid:workflowstate";}', '1.3.2', '1.3.99');
-INSERT INTO `modules` VALUES(16, 'Scribite', 2, 'Scribite', 'scribite', 'WYSIWYG for Zikula', 'Scribite', '4.3.1', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', 3, 'a:1:{s:10:"Scribite::";s:12:"Modulename::";}', '1.3.0', '1.3.99');
-INSERT INTO `modules` VALUES(17, 'Socialise', 2, 'Socialise!', 'socialise', 'Share content with social websites like Facebook and Twitter and handle your site Keys.', 'Socialise', '0.2.3', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', 1, 'a:1:{s:11:"Socialise::";s:2:"::";}', '', '');
-INSERT INTO `modules` VALUES(18, 'Tag', 2, 'Tag', 'tag', 'Tagging module', 'Tag', '1.0.2', 'a:3:{s:13:"hook_provider";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', 3, 'a:1:{s:5:"Tag::";s:2:"::";}', '1.3.2', '1.3.99');
-INSERT INTO `modules` VALUES(19, 'Captcha', 2, 'Captcha', 'captcha', 'Captcha hook module', 'Captcha', '1.0.0', 'a:2:{s:13:"hook_provider";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', 3, 'a:1:{s:9:"Captcha::";s:2:"::";}', '1.3.0', '');
-INSERT INTO `modules` VALUES(20, 'EZComments', 2, 'Comments', 'comments', 'Attach comments to every kind of content using hooks', 'EZComments', '3.0.1', 'a:4:{s:13:"hook_provider";a:1:{s:7:"enabled";b:1;}s:15:"hook_subscriber";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', 3, 'a:3:{s:12:"EZComments::";s:25:"Module:Item ID:Comment ID";s:21:"EZComments::trackback";s:15:"Module:Item ID:";s:20:"EZComments::pingback";s:15:"Module:Item ID:";}', '1.3.0', '1.3.99');
-INSERT INTO `modules` VALUES(21, 'Legal', 2, 'Legal info manager', 'legalmod', 'Provides an interface for managing the site''s legal documents.', 'Legal', '2.0.1', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', 3, 'a:8:{s:7:"Legal::";s:2:"::";s:18:"Legal::legalnotice";s:2:"::";s:17:"Legal::termsofuse";s:2:"::";s:20:"Legal::privacypolicy";s:2:"::";s:16:"Legal::agepolicy";s:2:"::";s:29:"Legal::accessibilitystatement";s:2:"::";s:30:"Legal::cancellationrightpolicy";s:2:"::";s:22:"Legal::tradeconditions";s:2:"::";}', '1.3.0', '1.3.99');
-INSERT INTO `modules` VALUES(22, 'Profile', 2, 'Profile', 'profile', 'Provides a personal account control panel for each registered user, an interface to administer the personal information items displayed within it, and a registered users list functionality. Works in close unison with the ''Users'' module.', 'Profile', '1.6.1', 'a:3:{s:7:"profile";a:1:{s:7:"version";s:3:"1.0";}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', 3, 'a:6:{s:9:"Profile::";s:2:"::";s:13:"Profile::view";s:2:"::";s:13:"Profile::item";s:56:"DynamicUserData PropertyName::DynamicUserData PropertyID";s:16:"Profile:Members:";s:2:"::";s:22:"Profile:Members:recent";s:2:"::";s:22:"Profile:Members:online";s:2:"::";}', '1.3.0', '1.3.99');
+INSERT INTO `modules` VALUES(15, 'Captcha', 2, 'Captcha', 'captcha', 'Captcha hook module', 'Captcha', '1.0.0', 'a:2:{s:13:"hook_provider";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', 3, 'a:1:{s:9:"Captcha::";s:2:"::";}', '1.3.0', '');
+INSERT INTO `modules` VALUES(16, 'Clip', 2, 'Clip', 'clip', 'Dynamic content publishing platform for Zikula.', 'Clip', '0.9.4', 'a:3:{s:15:"hook_subscriber";a:2:{s:7:"enabled";b:1;s:13:"subscribe_own";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', 3, 'a:5:{s:6:"Clip::";s:2:"::";s:21:"Clip:grouptypeid:main";s:15:"tid::templateid";s:21:"Clip:grouptypeid:list";s:15:"tid::templateid";s:24:"Clip:grouptypeid:display";s:18:"tid:pid:templateid";s:21:"Clip:grouptypeid:edit";s:21:"tid:pid:workflowstate";}', '1.3.2', '1.3.99');
+INSERT INTO `modules` VALUES(17, 'EZComments', 2, 'Comments', 'comments', 'Attach comments to every kind of content using hooks', 'EZComments', '3.0.1', 'a:4:{s:13:"hook_provider";a:1:{s:7:"enabled";b:1;}s:15:"hook_subscriber";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', 3, 'a:3:{s:12:"EZComments::";s:25:"Module:Item ID:Comment ID";s:21:"EZComments::trackback";s:15:"Module:Item ID:";s:20:"EZComments::pingback";s:15:"Module:Item ID:";}', '1.3.0', '1.3.99');
+INSERT INTO `modules` VALUES(18, 'Legal', 2, 'Legal info manager', 'legalmod', 'Provides an interface for managing the site''s legal documents.', 'Legal', '2.0.1', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', 3, 'a:8:{s:7:"Legal::";s:2:"::";s:18:"Legal::legalnotice";s:2:"::";s:17:"Legal::termsofuse";s:2:"::";s:20:"Legal::privacypolicy";s:2:"::";s:16:"Legal::agepolicy";s:2:"::";s:29:"Legal::accessibilitystatement";s:2:"::";s:30:"Legal::cancellationrightpolicy";s:2:"::";s:22:"Legal::tradeconditions";s:2:"::";}', '1.3.0', '1.3.99');
+INSERT INTO `modules` VALUES(19, 'Profile', 2, 'Profile', 'profile', 'Provides a personal account control panel for each registered user, an interface to administer the personal information items displayed within it, and a registered users list functionality. Works in close unison with the ''Users'' module.', 'Profile', '1.6.1', 'a:3:{s:7:"profile";a:1:{s:7:"version";s:3:"1.0";}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', 3, 'a:6:{s:9:"Profile::";s:2:"::";s:13:"Profile::view";s:2:"::";s:13:"Profile::item";s:56:"DynamicUserData PropertyName::DynamicUserData PropertyID";s:16:"Profile:Members:";s:2:"::";s:22:"Profile:Members:recent";s:2:"::";s:22:"Profile:Members:online";s:2:"::";}', '1.3.0', '1.3.99');
+INSERT INTO `modules` VALUES(20, 'Scribite', 2, 'Scribite', 'scribite', 'WYSIWYG for Zikula', 'Scribite', '4.3.1', 'a:2:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', 3, 'a:1:{s:10:"Scribite::";s:12:"Modulename::";}', '1.3.0', '1.3.99');
+INSERT INTO `modules` VALUES(21, 'Socialise', 2, 'Socialise!', 'socialise', 'Share content with social websites like Facebook and Twitter and handle your site Keys.', 'Socialise', '0.2.3', 'a:1:{s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}}', 1, 'a:1:{s:11:"Socialise::";s:2:"::";}', '', '');
+INSERT INTO `modules` VALUES(22, 'Tag', 2, 'Tag', 'tag', 'Tagging module', 'Tag', '1.0.2', 'a:3:{s:13:"hook_provider";a:1:{s:7:"enabled";b:1;}s:5:"admin";a:1:{s:7:"version";s:3:"1.0";}s:4:"user";a:1:{s:7:"version";s:3:"1.0";}}', 3, 'a:1:{s:5:"Tag::";s:2:"::";}', '1.3.2', '1.3.99');
 
 -- --------------------------------------------------------
 
@@ -958,14 +958,14 @@ CREATE TABLE `module_deps` (
   `maxversion` varchar(10) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `module_deps`
 --
 
-INSERT INTO `module_deps` VALUES(23, 15, 'Scribite', '4.2.1', '', 2);
-INSERT INTO `module_deps` VALUES(24, 20, 'Akismet', '2.0', '', 2);
+INSERT INTO `module_deps` VALUES(17, 16, 'Scribite', '4.2.1', '', 2);
+INSERT INTO `module_deps` VALUES(18, 17, 'Akismet', '2.0', '', 2);
 
 -- --------------------------------------------------------
 
@@ -980,7 +980,7 @@ CREATE TABLE `module_vars` (
   `value` longtext,
   PRIMARY KEY (`id`),
   KEY `mod_var` (`modname`,`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=284 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=281 ;
 
 --
 -- Dumping data for table `module_vars`
@@ -1109,13 +1109,13 @@ INSERT INTO `module_vars` VALUES(120, '/EventHandlers', 'Users', 'a:4:{i:0;a:3:{
 INSERT INTO `module_vars` VALUES(121, 'SecurityCenter', 'itemsperpage', 'i:10;');
 INSERT INTO `module_vars` VALUES(122, 'ZConfig', 'updatecheck', 'i:1;');
 INSERT INTO `module_vars` VALUES(123, 'ZConfig', 'updatefrequency', 'i:7;');
-INSERT INTO `module_vars` VALUES(124, 'ZConfig', 'updatelastchecked', 'i:1349523718;');
+INSERT INTO `module_vars` VALUES(124, 'ZConfig', 'updatelastchecked', 'i:1350418844;');
 INSERT INTO `module_vars` VALUES(125, 'ZConfig', 'updateversion', 's:5:"1.3.4";');
 INSERT INTO `module_vars` VALUES(126, 'ZConfig', 'keyexpiry', 'i:0;');
 INSERT INTO `module_vars` VALUES(127, 'ZConfig', 'sessionauthkeyua', 'b:0;');
 INSERT INTO `module_vars` VALUES(128, 'ZConfig', 'secure_domain', 's:0:"";');
 INSERT INTO `module_vars` VALUES(129, 'ZConfig', 'signcookies', 'i:1;');
-INSERT INTO `module_vars` VALUES(130, 'ZConfig', 'signingkey', 's:40:"768490b702ab8a44fa75183241d93271d9eb121c";');
+INSERT INTO `module_vars` VALUES(130, 'ZConfig', 'signingkey', 's:40:"e45f4e6ba245e8e28d087405e4374a81ddf62af8";');
 INSERT INTO `module_vars` VALUES(131, 'ZConfig', 'seclevel', 's:6:"Medium";');
 INSERT INTO `module_vars` VALUES(132, 'ZConfig', 'secmeddays', 'i:7;');
 INSERT INTO `module_vars` VALUES(133, 'ZConfig', 'secinactivemins', 'i:20;');
@@ -1174,101 +1174,98 @@ INSERT INTO `module_vars` VALUES(185, 'Categories', 'allowusercatedit', 'i:0;');
 INSERT INTO `module_vars` VALUES(186, 'Categories', 'autocreateusercat', 'i:0;');
 INSERT INTO `module_vars` VALUES(187, 'Categories', 'autocreateuserdefaultcat', 'i:0;');
 INSERT INTO `module_vars` VALUES(188, 'Categories', 'userdefaultcatname', 's:7:"Default";');
-INSERT INTO `module_vars` VALUES(189, 'Mailer', 'mailertype', 'i:1;');
-INSERT INTO `module_vars` VALUES(190, 'Mailer', 'charset', 's:5:"utf-8";');
-INSERT INTO `module_vars` VALUES(191, 'Mailer', 'encoding', 's:4:"8bit";');
-INSERT INTO `module_vars` VALUES(192, 'Mailer', 'html', 'b:0;');
-INSERT INTO `module_vars` VALUES(193, 'Mailer', 'wordwrap', 'i:50;');
-INSERT INTO `module_vars` VALUES(194, 'Mailer', 'msmailheaders', 'b:0;');
-INSERT INTO `module_vars` VALUES(195, 'Mailer', 'sendmailpath', 's:18:"/usr/sbin/sendmail";');
-INSERT INTO `module_vars` VALUES(196, 'Mailer', 'smtpauth', 'b:0;');
-INSERT INTO `module_vars` VALUES(197, 'Mailer', 'smtpserver', 's:9:"localhost";');
-INSERT INTO `module_vars` VALUES(198, 'Mailer', 'smtpport', 'i:25;');
-INSERT INTO `module_vars` VALUES(199, 'Mailer', 'smtptimeout', 'i:10;');
-INSERT INTO `module_vars` VALUES(200, 'Mailer', 'smtpusername', 's:0:"";');
-INSERT INTO `module_vars` VALUES(201, 'Mailer', 'smtppassword', 's:0:"";');
-INSERT INTO `module_vars` VALUES(202, 'Mailer', 'smtpsecuremethod', 's:3:"ssl";');
-INSERT INTO `module_vars` VALUES(203, 'Search', 'itemsperpage', 'i:10;');
-INSERT INTO `module_vars` VALUES(204, 'Search', 'limitsummary', 'i:255;');
-INSERT INTO `module_vars` VALUES(205, '/EventHandlers', 'Search', 'a:1:{i:0;a:3:{s:9:"eventname";s:26:"installer.module.installed";s:8:"callable";a:2:{i:0;s:20:"Search_EventHandlers";i:1;s:13:"moduleInstall";}s:6:"weight";i:10;}}');
-INSERT INTO `module_vars` VALUES(206, 'Tag', 'poptagsoneditform', 'i:10;');
-INSERT INTO `module_vars` VALUES(207, 'Tag', 'crpTagMigrateComplete', 'b:0;');
-INSERT INTO `module_vars` VALUES(208, '/EventHandlers', 'Tag', 'a:3:{i:0;a:3:{s:9:"eventname";s:28:"installer.module.uninstalled";s:8:"callable";a:2:{i:0;s:16:"Tag_HookHandlers";i:1;s:12:"moduleDelete";}s:6:"weight";i:10;}i:1;a:3:{s:9:"eventname";s:23:"module.content.gettypes";s:8:"callable";a:2:{i:0;s:12:"Tag_Handlers";i:1;s:8:"getTypes";}s:6:"weight";i:10;}i:2;a:3:{s:9:"eventname";s:9:"view.init";s:8:"callable";a:2:{i:0;s:12:"Tag_Handlers";i:1;s:17:"registerPluginDir";}s:6:"weight";i:10;}}');
-INSERT INTO `module_vars` VALUES(209, '/EventHandlers', 'EZComments', 'a:2:{i:0;a:3:{s:9:"eventname";s:28:"installer.module.uninstalled";s:8:"callable";a:2:{i:0;s:24:"EZComments_EventHandlers";i:1;s:12:"moduleDelete";}s:6:"weight";i:10;}i:1;a:3:{s:9:"eventname";s:36:"installer.subscriberarea.uninstalled";s:8:"callable";a:2:{i:0;s:24:"EZComments_EventHandlers";i:1;s:14:"hookAreaDelete";}s:6:"weight";i:10;}}');
-INSERT INTO `module_vars` VALUES(210, 'EZComments', 'template', 's:8:"Standard";');
-INSERT INTO `module_vars` VALUES(211, 'EZComments', 'css', 's:9:"style.css";');
-INSERT INTO `module_vars` VALUES(212, 'EZComments', 'anonusersinfo', 'b:0;');
-INSERT INTO `module_vars` VALUES(213, 'EZComments', 'anonusersrequirename', 'b:0;');
-INSERT INTO `module_vars` VALUES(214, 'EZComments', 'logip', 'b:0;');
-INSERT INTO `module_vars` VALUES(215, 'EZComments', 'itemsperpage', 'i:25;');
-INSERT INTO `module_vars` VALUES(216, 'EZComments', 'enablepager', 'b:0;');
-INSERT INTO `module_vars` VALUES(217, 'EZComments', 'commentsperpage', 'i:25;');
-INSERT INTO `module_vars` VALUES(218, 'EZComments', 'migrated', 'a:1:{s:5:"dummy";b:1;}');
-INSERT INTO `module_vars` VALUES(219, 'EZComments', 'useaccountpage', 's:1:"1";');
-INSERT INTO `module_vars` VALUES(220, 'EZComments', 'MailToAdmin', 'b:0;');
-INSERT INTO `module_vars` VALUES(221, 'EZComments', 'moderationmail', 'b:0;');
-INSERT INTO `module_vars` VALUES(222, 'EZComments', 'moderation', 'i:0;');
-INSERT INTO `module_vars` VALUES(223, 'EZComments', 'alwaysmoderate', 'b:0;');
-INSERT INTO `module_vars` VALUES(224, 'EZComments', 'dontmoderateifcommented', 'b:0;');
-INSERT INTO `module_vars` VALUES(225, 'EZComments', 'modlinkcount', 'i:2;');
-INSERT INTO `module_vars` VALUES(226, 'EZComments', 'modlist', 's:0:"";');
-INSERT INTO `module_vars` VALUES(227, 'EZComments', 'blacklinkcount', 'i:5;');
-INSERT INTO `module_vars` VALUES(228, 'EZComments', 'blacklist', 's:0:"";');
-INSERT INTO `module_vars` VALUES(229, 'EZComments', 'proxyblacklist', 'b:0;');
-INSERT INTO `module_vars` VALUES(230, 'EZComments', 'modifyowntime', 'i:6;');
-INSERT INTO `module_vars` VALUES(231, 'EZComments', 'akismet', 'b:0;');
-INSERT INTO `module_vars` VALUES(232, 'EZComments', 'akismetstatus', 'i:1;');
-INSERT INTO `module_vars` VALUES(233, 'EZComments', 'feedtype', 's:3:"rss";');
-INSERT INTO `module_vars` VALUES(234, 'EZComments', 'feedcount', 'i:10;');
-INSERT INTO `module_vars` VALUES(235, 'Profile', 'memberslistitemsperpage', 'i:20;');
-INSERT INTO `module_vars` VALUES(236, 'Profile', 'onlinemembersitemsperpage', 'i:20;');
-INSERT INTO `module_vars` VALUES(237, 'Profile', 'recentmembersitemsperpage', 'i:10;');
-INSERT INTO `module_vars` VALUES(238, 'Profile', 'filterunverified', 'i:1;');
-INSERT INTO `module_vars` VALUES(239, 'Profile', 'dudregshow', 'a:5:{i:0;i:1;i:1;i:3;i:2;i:4;i:3;i:10;i:4;i:11;}');
-INSERT INTO `module_vars` VALUES(240, '/EventHandlers', 'Profile', 'a:1:{i:0;a:1:{s:9:"classname";s:31:"Profile_Listener_UsersUiHandler";}}');
-INSERT INTO `module_vars` VALUES(241, '/EventHandlers', 'Scribite', 'a:1:{i:0;a:3:{s:9:"eventname";s:13:"core.postinit";s:8:"callable";a:2:{i:0;s:18:"Scribite_Listeners";i:1;s:8:"coreinit";}s:6:"weight";i:10;}}');
-INSERT INTO `module_vars` VALUES(242, 'Scribite', 'DefaultEditor', 's:7:"TinyMCE";');
-INSERT INTO `module_vars` VALUES(243, 'Scribite', 'upload_path', 's:17:"userdata/Scribite";');
-INSERT INTO `module_vars` VALUES(244, 'Scribite', 'image_upload', 'b:1;');
-INSERT INTO `module_vars` VALUES(245, 'moduleplugin.scribite.nicedit', 'fullpanel', 'i:0;');
-INSERT INTO `module_vars` VALUES(246, 'moduleplugin.scribite.nicedit', 'xhtml', 'i:0;');
-INSERT INTO `module_vars` VALUES(247, '/Plugin', 'moduleplugin.scribite.nicedit', 'a:2:{s:5:"state";i:1;s:7:"version";s:5:"1.1.1";}');
-INSERT INTO `module_vars` VALUES(248, 'moduleplugin.scribite.tinymce', 'language', 's:2:"en";');
-INSERT INTO `module_vars` VALUES(249, 'moduleplugin.scribite.tinymce', 'style', 's:48:"modules/Scribite/Plugins/TinyMCE/style/style.css";');
-INSERT INTO `module_vars` VALUES(250, 'moduleplugin.scribite.tinymce', 'theme', 's:8:"advanced";');
-INSERT INTO `module_vars` VALUES(251, 'moduleplugin.scribite.tinymce', 'width', 's:3:"65%";');
-INSERT INTO `module_vars` VALUES(252, 'moduleplugin.scribite.tinymce', 'height', 's:5:"400px";');
-INSERT INTO `module_vars` VALUES(253, 'moduleplugin.scribite.tinymce', 'dateformat', 's:8:"%Y-%m-%d";');
-INSERT INTO `module_vars` VALUES(254, 'moduleplugin.scribite.tinymce', 'timeformat', 's:8:"%H:%M:%S";');
-INSERT INTO `module_vars` VALUES(255, 'moduleplugin.scribite.tinymce', 'activeplugins', 's:0:"";');
-INSERT INTO `module_vars` VALUES(256, '/Plugin', 'moduleplugin.scribite.tinymce', 'a:2:{s:5:"state";i:1;s:7:"version";s:5:"3.4.7";}');
-INSERT INTO `module_vars` VALUES(257, 'Clip', 'uploadpath', 's:21:"userdata/Clip/uploads";');
-INSERT INTO `module_vars` VALUES(258, 'Clip', 'modelspath', 's:16:"ztemp/ClipModels";');
-INSERT INTO `module_vars` VALUES(259, 'Clip', 'pubtype', 'N;');
-INSERT INTO `module_vars` VALUES(260, 'Clip', 'shorturls', 's:3:"htm";');
-INSERT INTO `module_vars` VALUES(261, 'Clip', 'maxperpage', 'i:100;');
-INSERT INTO `module_vars` VALUES(262, 'Clip', 'commontpls', 'b:0;');
-INSERT INTO `module_vars` VALUES(263, 'Clip', 'devmode', 'b:1;');
-INSERT INTO `module_vars` VALUES(264, '/EventHandlers', 'Clip', 'a:2:{i:0;a:3:{s:9:"eventname";s:36:"zikula.filterutil.get_plugin_classes";s:8:"callable";a:2:{i:0;s:27:"Clip_EventHandler_Listeners";i:1;s:16:"getFilterClasses";}s:6:"weight";i:10;}i:1;a:3:{s:9:"eventname";s:23:"module.content.gettypes";s:8:"callable";a:2:{i:0;s:27:"Clip_EventHandler_Listeners";i:1;s:15:"getContentTypes";}s:6:"weight";i:10;}}');
-INSERT INTO `module_vars` VALUES(265, 'Captcha', 'publickey', 's:0:"";');
-INSERT INTO `module_vars` VALUES(266, 'Captcha', 'privatekey', 's:0:"";');
-INSERT INTO `module_vars` VALUES(267, 'Captcha', 'exemptAdmin', 's:1:"1";');
-INSERT INTO `module_vars` VALUES(268, 'Captcha', 'captchaTheme', 's:3:"red";');
-INSERT INTO `module_vars` VALUES(269, 'ZConfig', 'pagetitle', 's:11:"%pagetitle%";');
-INSERT INTO `module_vars` VALUES(270, 'Legal', 'legalNoticeActive', 'b:1;');
-INSERT INTO `module_vars` VALUES(271, 'Legal', 'termsOfUseActive', 'b:1;');
-INSERT INTO `module_vars` VALUES(272, 'Legal', 'privacyPolicyActive', 'b:1;');
-INSERT INTO `module_vars` VALUES(273, 'Legal', 'accessibilityStatementActive', 'b:1;');
-INSERT INTO `module_vars` VALUES(274, 'Legal', 'cancellationRightPolicyActive', 'b:0;');
-INSERT INTO `module_vars` VALUES(275, 'Legal', 'tradeConditionsActive', 'b:0;');
-INSERT INTO `module_vars` VALUES(276, 'Legal', 'legalNoticeUrl', 's:0:"";');
-INSERT INTO `module_vars` VALUES(277, 'Legal', 'termsOfUseUrl', 's:0:"";');
-INSERT INTO `module_vars` VALUES(278, 'Legal', 'privacyPolicyUrl', 's:0:"";');
-INSERT INTO `module_vars` VALUES(279, 'Legal', 'accessibilityStatementUrl', 's:0:"";');
-INSERT INTO `module_vars` VALUES(280, 'Legal', 'cancellationRightPolicyUrl', 's:0:"";');
-INSERT INTO `module_vars` VALUES(281, 'Legal', 'tradeConditionsUrl', 's:0:"";');
-INSERT INTO `module_vars` VALUES(282, 'Legal', 'minimumAge', 'i:13;');
-INSERT INTO `module_vars` VALUES(283, '/EventHandlers', 'Legal', 'a:2:{i:0;a:3:{s:9:"eventname";s:15:"user.login.veto";s:8:"callable";a:2:{i:0;s:29:"Legal_Listener_UsersLoginVeto";i:1;s:22:"acceptPoliciesListener";}s:6:"weight";i:10;}i:1;a:1:{s:9:"classname";s:29:"Legal_Listener_UsersUiHandler";}}');
+INSERT INTO `module_vars` VALUES(189, 'Legal', 'legalNoticeActive', 'b:1;');
+INSERT INTO `module_vars` VALUES(190, 'Legal', 'termsOfUseActive', 'b:1;');
+INSERT INTO `module_vars` VALUES(191, 'Legal', 'privacyPolicyActive', 'b:1;');
+INSERT INTO `module_vars` VALUES(192, 'Legal', 'accessibilityStatementActive', 'b:1;');
+INSERT INTO `module_vars` VALUES(193, 'Legal', 'cancellationRightPolicyActive', 'b:0;');
+INSERT INTO `module_vars` VALUES(194, 'Legal', 'tradeConditionsActive', 'b:0;');
+INSERT INTO `module_vars` VALUES(195, 'Legal', 'legalNoticeUrl', 's:0:"";');
+INSERT INTO `module_vars` VALUES(196, 'Legal', 'termsOfUseUrl', 's:0:"";');
+INSERT INTO `module_vars` VALUES(197, 'Legal', 'privacyPolicyUrl', 's:0:"";');
+INSERT INTO `module_vars` VALUES(198, 'Legal', 'accessibilityStatementUrl', 's:0:"";');
+INSERT INTO `module_vars` VALUES(199, 'Legal', 'cancellationRightPolicyUrl', 's:0:"";');
+INSERT INTO `module_vars` VALUES(200, 'Legal', 'tradeConditionsUrl', 's:0:"";');
+INSERT INTO `module_vars` VALUES(201, 'Legal', 'minimumAge', 'i:13;');
+INSERT INTO `module_vars` VALUES(202, '/EventHandlers', 'Legal', 'a:2:{i:0;a:3:{s:9:"eventname";s:15:"user.login.veto";s:8:"callable";a:2:{i:0;s:29:"Legal_Listener_UsersLoginVeto";i:1;s:22:"acceptPoliciesListener";}s:6:"weight";i:10;}i:1;a:1:{s:9:"classname";s:29:"Legal_Listener_UsersUiHandler";}}');
+INSERT INTO `module_vars` VALUES(203, 'Mailer', 'mailertype', 'i:1;');
+INSERT INTO `module_vars` VALUES(204, 'Mailer', 'charset', 's:5:"utf-8";');
+INSERT INTO `module_vars` VALUES(205, 'Mailer', 'encoding', 's:4:"8bit";');
+INSERT INTO `module_vars` VALUES(206, 'Mailer', 'html', 'b:0;');
+INSERT INTO `module_vars` VALUES(207, 'Mailer', 'wordwrap', 'i:50;');
+INSERT INTO `module_vars` VALUES(208, 'Mailer', 'msmailheaders', 'b:0;');
+INSERT INTO `module_vars` VALUES(209, 'Mailer', 'sendmailpath', 's:18:"/usr/sbin/sendmail";');
+INSERT INTO `module_vars` VALUES(210, 'Mailer', 'smtpauth', 'b:0;');
+INSERT INTO `module_vars` VALUES(211, 'Mailer', 'smtpserver', 's:9:"localhost";');
+INSERT INTO `module_vars` VALUES(212, 'Mailer', 'smtpport', 'i:25;');
+INSERT INTO `module_vars` VALUES(213, 'Mailer', 'smtptimeout', 'i:10;');
+INSERT INTO `module_vars` VALUES(214, 'Mailer', 'smtpusername', 's:0:"";');
+INSERT INTO `module_vars` VALUES(215, 'Mailer', 'smtppassword', 's:0:"";');
+INSERT INTO `module_vars` VALUES(216, 'Mailer', 'smtpsecuremethod', 's:3:"ssl";');
+INSERT INTO `module_vars` VALUES(217, 'Search', 'itemsperpage', 'i:10;');
+INSERT INTO `module_vars` VALUES(218, 'Search', 'limitsummary', 'i:255;');
+INSERT INTO `module_vars` VALUES(219, '/EventHandlers', 'Search', 'a:1:{i:0;a:3:{s:9:"eventname";s:26:"installer.module.installed";s:8:"callable";a:2:{i:0;s:20:"Search_EventHandlers";i:1;s:13:"moduleInstall";}s:6:"weight";i:10;}}');
+INSERT INTO `module_vars` VALUES(220, 'Tag', 'poptagsoneditform', 'i:10;');
+INSERT INTO `module_vars` VALUES(221, 'Tag', 'crpTagMigrateComplete', 'b:0;');
+INSERT INTO `module_vars` VALUES(222, '/EventHandlers', 'Tag', 'a:3:{i:0;a:3:{s:9:"eventname";s:28:"installer.module.uninstalled";s:8:"callable";a:2:{i:0;s:16:"Tag_HookHandlers";i:1;s:12:"moduleDelete";}s:6:"weight";i:10;}i:1;a:3:{s:9:"eventname";s:23:"module.content.gettypes";s:8:"callable";a:2:{i:0;s:12:"Tag_Handlers";i:1;s:8:"getTypes";}s:6:"weight";i:10;}i:2;a:3:{s:9:"eventname";s:9:"view.init";s:8:"callable";a:2:{i:0;s:12:"Tag_Handlers";i:1;s:17:"registerPluginDir";}s:6:"weight";i:10;}}');
+INSERT INTO `module_vars` VALUES(223, '/EventHandlers', 'EZComments', 'a:2:{i:0;a:3:{s:9:"eventname";s:28:"installer.module.uninstalled";s:8:"callable";a:2:{i:0;s:24:"EZComments_EventHandlers";i:1;s:12:"moduleDelete";}s:6:"weight";i:10;}i:1;a:3:{s:9:"eventname";s:36:"installer.subscriberarea.uninstalled";s:8:"callable";a:2:{i:0;s:24:"EZComments_EventHandlers";i:1;s:14:"hookAreaDelete";}s:6:"weight";i:10;}}');
+INSERT INTO `module_vars` VALUES(224, 'EZComments', 'template', 's:8:"Standard";');
+INSERT INTO `module_vars` VALUES(225, 'EZComments', 'css', 's:9:"style.css";');
+INSERT INTO `module_vars` VALUES(226, 'EZComments', 'anonusersinfo', 'b:0;');
+INSERT INTO `module_vars` VALUES(227, 'EZComments', 'anonusersrequirename', 'b:0;');
+INSERT INTO `module_vars` VALUES(228, 'EZComments', 'logip', 'b:0;');
+INSERT INTO `module_vars` VALUES(229, 'EZComments', 'itemsperpage', 'i:25;');
+INSERT INTO `module_vars` VALUES(230, 'EZComments', 'enablepager', 'b:0;');
+INSERT INTO `module_vars` VALUES(231, 'EZComments', 'commentsperpage', 'i:25;');
+INSERT INTO `module_vars` VALUES(232, 'EZComments', 'migrated', 'a:1:{s:5:"dummy";b:1;}');
+INSERT INTO `module_vars` VALUES(233, 'EZComments', 'useaccountpage', 's:1:"1";');
+INSERT INTO `module_vars` VALUES(234, 'EZComments', 'MailToAdmin', 'b:0;');
+INSERT INTO `module_vars` VALUES(235, 'EZComments', 'moderationmail', 'b:0;');
+INSERT INTO `module_vars` VALUES(236, 'EZComments', 'moderation', 'i:0;');
+INSERT INTO `module_vars` VALUES(237, 'EZComments', 'alwaysmoderate', 'b:0;');
+INSERT INTO `module_vars` VALUES(238, 'EZComments', 'dontmoderateifcommented', 'b:0;');
+INSERT INTO `module_vars` VALUES(239, 'EZComments', 'modlinkcount', 'i:2;');
+INSERT INTO `module_vars` VALUES(240, 'EZComments', 'modlist', 's:0:"";');
+INSERT INTO `module_vars` VALUES(241, 'EZComments', 'blacklinkcount', 'i:5;');
+INSERT INTO `module_vars` VALUES(242, 'EZComments', 'blacklist', 's:0:"";');
+INSERT INTO `module_vars` VALUES(243, 'EZComments', 'proxyblacklist', 'b:0;');
+INSERT INTO `module_vars` VALUES(244, 'EZComments', 'modifyowntime', 'i:6;');
+INSERT INTO `module_vars` VALUES(245, 'EZComments', 'akismet', 'b:0;');
+INSERT INTO `module_vars` VALUES(246, 'EZComments', 'akismetstatus', 'i:1;');
+INSERT INTO `module_vars` VALUES(247, 'EZComments', 'feedtype', 's:3:"rss";');
+INSERT INTO `module_vars` VALUES(248, 'EZComments', 'feedcount', 'i:10;');
+INSERT INTO `module_vars` VALUES(249, 'Captcha', 'publickey', 's:0:"";');
+INSERT INTO `module_vars` VALUES(250, 'Captcha', 'privatekey', 's:0:"";');
+INSERT INTO `module_vars` VALUES(251, 'Captcha', 'exemptAdmin', 'i:0;');
+INSERT INTO `module_vars` VALUES(252, 'Captcha', 'captchaTheme', 's:3:"red";');
+INSERT INTO `module_vars` VALUES(253, '/EventHandlers', 'Scribite', 'a:1:{i:0;a:3:{s:9:"eventname";s:13:"core.postinit";s:8:"callable";a:2:{i:0;s:18:"Scribite_Listeners";i:1;s:8:"coreinit";}s:6:"weight";i:10;}}');
+INSERT INTO `module_vars` VALUES(254, 'Scribite', 'DefaultEditor', 's:7:"TinyMCE";');
+INSERT INTO `module_vars` VALUES(255, 'Scribite', 'upload_path', 's:17:"userdata/Scribite";');
+INSERT INTO `module_vars` VALUES(256, 'Scribite', 'image_upload', 'b:0;');
+INSERT INTO `module_vars` VALUES(257, 'moduleplugin.scribite.tinymce', 'language', 's:2:"en";');
+INSERT INTO `module_vars` VALUES(258, 'moduleplugin.scribite.tinymce', 'style', 's:48:"modules/Scribite/plugins/TinyMCE/style/style.css";');
+INSERT INTO `module_vars` VALUES(259, 'moduleplugin.scribite.tinymce', 'theme', 's:8:"advanced";');
+INSERT INTO `module_vars` VALUES(260, 'moduleplugin.scribite.tinymce', 'width', 's:3:"65%";');
+INSERT INTO `module_vars` VALUES(261, 'moduleplugin.scribite.tinymce', 'height', 's:5:"400px";');
+INSERT INTO `module_vars` VALUES(262, 'moduleplugin.scribite.tinymce', 'dateformat', 's:8:"%Y-%m-%d";');
+INSERT INTO `module_vars` VALUES(263, 'moduleplugin.scribite.tinymce', 'timeformat', 's:8:"%H:%M:%S";');
+INSERT INTO `module_vars` VALUES(264, 'moduleplugin.scribite.tinymce', 'activeplugins', 's:0:"";');
+INSERT INTO `module_vars` VALUES(265, '/Plugin', 'moduleplugin.scribite.tinymce', 'a:2:{s:5:"state";i:1;s:7:"version";s:5:"3.4.7";}');
+INSERT INTO `module_vars` VALUES(266, 'Clip', 'uploadpath', 's:21:"userdata/Clip/uploads";');
+INSERT INTO `module_vars` VALUES(267, 'Clip', 'modelspath', 's:16:"ztemp/ClipModels";');
+INSERT INTO `module_vars` VALUES(268, 'Clip', 'pubtype', 'N;');
+INSERT INTO `module_vars` VALUES(269, 'Clip', 'shorturls', 's:3:"htm";');
+INSERT INTO `module_vars` VALUES(270, 'Clip', 'maxperpage', 'i:100;');
+INSERT INTO `module_vars` VALUES(271, 'Clip', 'commontpls', 'b:0;');
+INSERT INTO `module_vars` VALUES(272, 'Clip', 'devmode', 'b:1;');
+INSERT INTO `module_vars` VALUES(273, '/EventHandlers', 'Clip', 'a:2:{i:0;a:3:{s:9:"eventname";s:36:"zikula.filterutil.get_plugin_classes";s:8:"callable";a:2:{i:0;s:27:"Clip_EventHandler_Listeners";i:1;s:16:"getFilterClasses";}s:6:"weight";i:10;}i:1;a:3:{s:9:"eventname";s:23:"module.content.gettypes";s:8:"callable";a:2:{i:0;s:27:"Clip_EventHandler_Listeners";i:1;s:15:"getContentTypes";}s:6:"weight";i:10;}}');
+INSERT INTO `module_vars` VALUES(274, 'Profile', 'memberslistitemsperpage', 'i:20;');
+INSERT INTO `module_vars` VALUES(275, 'Profile', 'onlinemembersitemsperpage', 'i:20;');
+INSERT INTO `module_vars` VALUES(276, 'Profile', 'recentmembersitemsperpage', 'i:10;');
+INSERT INTO `module_vars` VALUES(277, 'Profile', 'filterunverified', 'i:1;');
+INSERT INTO `module_vars` VALUES(278, 'Profile', 'dudregshow', 'a:5:{i:0;i:1;i:1;i:3;i:2;i:4;i:3;i:10;i:4;i:11;}');
+INSERT INTO `module_vars` VALUES(279, '/EventHandlers', 'Profile', 'a:1:{i:0;a:1:{s:9:"classname";s:31:"Profile_Listener_UsersUiHandler";}}');
+INSERT INTO `module_vars` VALUES(280, 'ZConfig', 'pagetitle', 's:11:"%pagetitle%";');
 
 -- --------------------------------------------------------
 
@@ -1290,25 +1287,25 @@ CREATE TABLE `objectdata_attributes` (
   PRIMARY KEY (`id`),
   KEY `object_type` (`object_type`),
   KEY `object_id` (`object_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `objectdata_attributes`
 --
 
-INSERT INTO `objectdata_attributes` VALUES(1, 'code', 5, 'categories_category', 'Y', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `objectdata_attributes` VALUES(2, 'code', 6, 'categories_category', 'N', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `objectdata_attributes` VALUES(3, 'code', 11, 'categories_category', 'P', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `objectdata_attributes` VALUES(4, 'code', 12, 'categories_category', 'C', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `objectdata_attributes` VALUES(5, 'code', 13, 'categories_category', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `objectdata_attributes` VALUES(6, 'code', 14, 'categories_category', 'O', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `objectdata_attributes` VALUES(7, 'code', 15, 'categories_category', 'R', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `objectdata_attributes` VALUES(8, 'code', 17, 'categories_category', 'M', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `objectdata_attributes` VALUES(9, 'code', 18, 'categories_category', 'F', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `objectdata_attributes` VALUES(10, 'code', 26, 'categories_category', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `objectdata_attributes` VALUES(11, 'code', 27, 'categories_category', 'I', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `objectdata_attributes` VALUES(12, 'code', 29, 'categories_category', 'P', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
-INSERT INTO `objectdata_attributes` VALUES(13, 'code', 30, 'categories_category', 'A', 'A', '2012-10-06 13:41:56', 0, '2012-10-06 13:41:56', 0);
+INSERT INTO `objectdata_attributes` VALUES(1, 'code', 5, 'categories_category', 'Y', 'A', '2012-10-16 22:20:22', 0, '2012-10-16 22:20:22', 0);
+INSERT INTO `objectdata_attributes` VALUES(2, 'code', 6, 'categories_category', 'N', 'A', '2012-10-16 22:20:22', 0, '2012-10-16 22:20:22', 0);
+INSERT INTO `objectdata_attributes` VALUES(3, 'code', 11, 'categories_category', 'P', 'A', '2012-10-16 22:20:22', 0, '2012-10-16 22:20:22', 0);
+INSERT INTO `objectdata_attributes` VALUES(4, 'code', 12, 'categories_category', 'C', 'A', '2012-10-16 22:20:22', 0, '2012-10-16 22:20:22', 0);
+INSERT INTO `objectdata_attributes` VALUES(5, 'code', 13, 'categories_category', 'A', 'A', '2012-10-16 22:20:22', 0, '2012-10-16 22:20:22', 0);
+INSERT INTO `objectdata_attributes` VALUES(6, 'code', 14, 'categories_category', 'O', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `objectdata_attributes` VALUES(7, 'code', 15, 'categories_category', 'R', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `objectdata_attributes` VALUES(8, 'code', 17, 'categories_category', 'M', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `objectdata_attributes` VALUES(9, 'code', 18, 'categories_category', 'F', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `objectdata_attributes` VALUES(10, 'code', 26, 'categories_category', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `objectdata_attributes` VALUES(11, 'code', 27, 'categories_category', 'I', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `objectdata_attributes` VALUES(12, 'code', 29, 'categories_category', 'P', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
+INSERT INTO `objectdata_attributes` VALUES(13, 'code', 30, 'categories_category', 'A', 'A', '2012-10-16 22:20:23', 0, '2012-10-16 22:20:23', 0);
 
 -- --------------------------------------------------------
 
@@ -1328,7 +1325,7 @@ CREATE TABLE `objectdata_log` (
   `lu_date` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
   `lu_uid` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1368,7 +1365,7 @@ CREATE TABLE `objectdata_meta` (
   `lu_date` datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
   `lu_uid` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1383,7 +1380,7 @@ CREATE TABLE `scribite` (
   `modareas` longtext,
   `modeditor` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`mid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `scribite`
@@ -1403,7 +1400,7 @@ INSERT INTO `scribite` VALUES(11, 'News', 'a:2:{i:0;s:8:"newitem"";i:1;s:6:"modi
 INSERT INTO `scribite` VALUES(12, 'Newsletter', 'a:1:{i:0;s:11:"add_message";}', 'a:1:{i:0;s:7:"message";}', '-');
 INSERT INTO `scribite` VALUES(13, 'PagEd', 'a:1:{i:0;s:3:"all";}', 'a:1:{i:0;s:5:"PagEd";}', '-');
 INSERT INTO `scribite` VALUES(14, 'Pages', 'a:2:{i:0;s:7:"newitem";i:1;s:7:"modify}";}', 'a:1:{i:0;s:13:"pages_content";}', '-');
-INSERT INTO `scribite` VALUES(15, 'Clip', 'a:1:{i:0;s:7:"pubedit";}', 'a:1:{i:0;s:3:"all";}', '-');
+INSERT INTO `scribite` VALUES(15, 'Clip', 'a:1:{i:0;s:4:"edit";}', 'a:1:{i:0;s:3:"all";}', '-');
 INSERT INTO `scribite` VALUES(16, 'PhotoGallery', 'a:2:{i:0;s:11:"editgallery";i:1;s:9:"editphoto";}', 'a:1:{i:0;s:17:"photogallery_desc";}', '-');
 INSERT INTO `scribite` VALUES(17, 'Profile', 'a:1:{i:0;s:6:"modify";}', 'a:3:{i:0;s:14:"prop_signature";i:1;s:14:"prop_extrainfo";i:2;s:15:"prop_yinterests";}', '-');
 INSERT INTO `scribite` VALUES(18, 'PostCalendar', 'a:1:{i:0;s:3:"all";}', 'a:1:{i:0;s:11:"description";}', '-');
@@ -1428,7 +1425,7 @@ CREATE TABLE `sc_intrusion` (
   `filters` longtext NOT NULL,
   `date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1448,7 +1445,7 @@ CREATE TABLE `search_result` (
   PRIMARY KEY (`id`),
   KEY `title` (`title`),
   KEY `module` (`module`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1462,7 +1459,7 @@ CREATE TABLE `search_stat` (
   `scount` int(11) NOT NULL DEFAULT '0',
   `date` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1478,13 +1475,13 @@ CREATE TABLE `session_info` (
   `remember` tinyint(4) NOT NULL DEFAULT '0',
   `vars` longtext NOT NULL,
   PRIMARY KEY (`sessid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `session_info`
 --
 
-INSERT INTO `session_info` VALUES('nuth8cpco7lm84rq5iak469jhunqqf5b', 'f528764d624db129b32c21fbca0cb8d6', '2012-10-06 16:51:15', 2, 0, '/|a:4:{s:4:"rand";a:0:{}s:9:"useragent";s:40:"38a257377d24da4539f861bd4b49038b146c5ca1";s:3:"uid";s:1:"2";s:7:"_tokens";a:1:{s:23:"50704562399fa9.18322266";a:2:{s:5:"token";s:92:"NTA3MDQ1NjIzOTlmYTkuMTgzMjIyNjY6NGFkY2QxZDEwYTRkOWRjYTI5MjQ1MzljYzg0NzYwNWE6MTM0OTUzNTA3NA==";s:9:"timestamp";i:1349535074;}}}_zikula_messages|a:0:{}Zikula_Users|a:1:{s:21:"authentication_method";a:2:{s:7:"modname";s:5:"Users";s:6:"method";s:5:"uname";}}');
+INSERT INTO `session_info` VALUES('onsnod6mrcd0adekp4qmq6cgds1q2a2s', 'f528764d624db129b32c21fbca0cb8d6', '2012-10-16 22:24:28', 2, 1, '/|a:8:{s:4:"rand";a:3:{s:5:"admin";s:32:"it3$zoD}1PSQy[E{e=OT-5HD+hQP_)SM";s:10:"extensions";s:38:"GlsO}0-dl4]QqJ~}D]0s%Tge5]}qI]~L1LI-oD";s:6:"blocks";s:34:"MyD#$rmGd^=|jj2gTkiUv#{G*E07il2H%B";}s:9:"useragent";s:40:"6ab18a2ea1d4b17d67713e416b07d46bf2f4d03b";s:3:"uid";s:1:"2";s:7:"_tokens";a:18:{s:23:"507dc198e731d4.73426390";a:2:{s:5:"token";s:92:"NTA3ZGMxOThlNzMxZDQuNzM0MjYzOTA6ZWJiNTNlMWMyMjVlMDQzNDdjMzY3YTcxYzQ2Y2E4Yzk6MTM1MDQxODg0MA==";s:9:"timestamp";i:1350418840;}s:23:"507dc1bc1e4617.56547772";a:2:{s:5:"token";s:92:"NTA3ZGMxYmMxZTQ2MTcuNTY1NDc3NzI6NDU5YWI1MzNhMzc4ZDAwN2Q3OTFkZTQxYTA0MTBlZjI6MTM1MDQxODg3Ng==";s:9:"timestamp";i:1350418876;}s:23:"507dc1de108f24.93887532";a:2:{s:5:"token";s:92:"NTA3ZGMxZGUxMDhmMjQuOTM4ODc1MzI6YWRjNTEzMzg2YTQzMThkOTdiY2M0OWY3NWY3ZTljYjU6MTM1MDQxODkxMA==";s:9:"timestamp";i:1350418910;}s:23:"507dc1ffcb25b5.37362689";a:2:{s:5:"token";s:92:"NTA3ZGMxZmZjYjI1YjUuMzczNjI2ODk6Y2I4ODdlMzVjNjUyOTE1MDhjNzBiMTExMTBlN2I5ODI6MTM1MDQxODk0Mw==";s:9:"timestamp";i:1350418943;}s:23:"507dc20bb08140.52290096";a:2:{s:5:"token";s:92:"NTA3ZGMyMGJiMDgxNDAuNTIyOTAwOTY6ZmZkZjNhNzQ1MGIxMzg2OWNhNWZiMzdjYWU3YTg4NGY6MTM1MDQxODk1NQ==";s:9:"timestamp";i:1350418955;}s:23:"507dc20ea1f272.28033470";a:2:{s:5:"token";s:92:"NTA3ZGMyMGVhMWYyNzIuMjgwMzM0NzA6ODA2ODUyYjNmYzUyYmU1OTY5ZmU1ZGY2ODljZDVkZTg6MTM1MDQxODk1OA==";s:9:"timestamp";i:1350418958;}s:23:"507dc211cba079.80275671";a:2:{s:5:"token";s:92:"NTA3ZGMyMTFjYmEwNzkuODAyNzU2NzE6OTlkZmZhZjNjMzJlMGQzZjBiMDA5MjllMDJmYjhjNmM6MTM1MDQxODk2MQ==";s:9:"timestamp";i:1350418961;}s:23:"507dc215651dd5.24324488";a:2:{s:5:"token";s:92:"NTA3ZGMyMTU2NTFkZDUuMjQzMjQ0ODg6ODljZWJlZjIwYjAwYTk1YWI0ODYzNzA3YTdlNWIyODU6MTM1MDQxODk2NQ==";s:9:"timestamp";i:1350418965;}s:23:"507dc21b353c20.55012068";a:2:{s:5:"token";s:92:"NTA3ZGMyMWIzNTNjMjAuNTUwMTIwNjg6ODYyMzM5MTA3ZjVhNGYwOTAxOGRhNDdlOGQzNTA1YjI6MTM1MDQxODk3MQ==";s:9:"timestamp";i:1350418971;}s:23:"507dc21e85ad69.95737700";a:2:{s:5:"token";s:92:"NTA3ZGMyMWU4NWFkNjkuOTU3Mzc3MDA6YzNiNzg1NWYwZjhiZjc1YTliNzdlMWZjZmNkZmU2MzU6MTM1MDQxODk3NA==";s:9:"timestamp";i:1350418974;}s:23:"507dc231803ab2.09727485";a:2:{s:5:"token";s:92:"NTA3ZGMyMzE4MDNhYjIuMDk3Mjc0ODU6MWMxZThiODQ3NTllYjRjMmQwZTczYTk4ZjljNzE0MGY6MTM1MDQxODk5Mw==";s:9:"timestamp";i:1350418993;}s:23:"507dc249328b78.35300138";a:2:{s:5:"token";s:92:"NTA3ZGMyNDkzMjhiNzguMzUzMDAxMzg6MzQ1NjY5YWRkOTZiMTg5MTZmNzFjY2Q5NzIyODYyZDA6MTM1MDQxOTAxNw==";s:9:"timestamp";i:1350419017;}s:23:"507dc24d114799.34315523";a:2:{s:5:"token";s:92:"NTA3ZGMyNGQxMTQ3OTkuMzQzMTU1MjM6ZWE5Y2I0N2ZlZTk4OGI1YmI2YWRmZWE1ZjBiNjgzODk6MTM1MDQxOTAyMQ==";s:9:"timestamp";i:1350419021;}s:23:"507dc255bec387.04046292";a:2:{s:5:"token";s:92:"NTA3ZGMyNTViZWMzODcuMDQwNDYyOTI6OWM5YTljYzZmYmFjYjNlYjY4Nzg5NjVjNzQ5Mjk2YzM6MTM1MDQxOTAyOQ==";s:9:"timestamp";i:1350419029;}s:23:"507dc25bd424b2.07445276";a:2:{s:5:"token";s:92:"NTA3ZGMyNWJkNDI0YjIuMDc0NDUyNzY6OWJhMTMzMTEwOTU5OTg5NjRhYjljMWUzOWY5ZWJjM2E6MTM1MDQxOTAzNQ==";s:9:"timestamp";i:1350419035;}s:23:"507dc2647a4db0.47859172";a:2:{s:5:"token";s:92:"NTA3ZGMyNjQ3YTRkYjAuNDc4NTkxNzI6ZTI0ODg5Yjg5NzVkNDNhMDU4ZTRlMGZlMWY2ZjQ2Nzc6MTM1MDQxOTA0NA==";s:9:"timestamp";i:1350419044;}s:23:"507dc26a2af2c8.61559802";a:2:{s:5:"token";s:92:"NTA3ZGMyNmEyYWYyYzguNjE1NTk4MDI6YzBhYTYwYTA0MzU2MjdmNzhjOTEwODdmNGEzN2QyY2M6MTM1MDQxOTA1MA==";s:9:"timestamp";i:1350419050;}s:23:"507dc276d15859.29171754";a:2:{s:5:"token";s:92:"NTA3ZGMyNzZkMTU4NTkuMjkxNzE3NTQ6ZTcyNjYzMTg0ZTMyMTZjNjNhOGI4ODk4ZTM4NjRmYzE6MTM1MDQxOTA2Mg==";s:9:"timestamp";i:1350419062;}}s:10:"rememberme";i:1;s:5:"state";s:1:"0";s:4:"sort";s:4:"name";s:7:"sortdir";s:3:"ASC";}_zikula_messages|a:1:{s:6:"status";a:0:{}}Zikula_Users|a:1:{s:21:"authentication_method";a:2:{s:7:"modname";s:5:"Users";s:6:"method";s:5:"uname";}}__forms|a:2:{s:14:"f507dc231534f2";a:3:{s:5:"state";a:1:{s:16:"Zikula_Form_View";a:1:{s:7:"plugins";a:20:{i:0;a:3:{i:0;s:36:"Zikula_Form_Plugin_ValidationSummary";i:1;a:9:{i:0;s:35:"z-form-validationSummary z-errormsg";i:1;s:4:"plg1";i:2;b:1;i:3;N;i:4;a:0:{}i:5;N;i:6;N;i:7;N;i:8;N;}i:2;a:0:{}}i:1;a:3:{i:0;s:24:"Zikula_Form_Plugin_Label";i:1;a:14:{i:0;s:15:"Editor language";i:1;N;i:2;s:8:"language";i:3;N;i:4;N;i:5;a:0:{}i:6;s:4:"plg2";i:7;b:1;i:8;N;i:9;a:0:{}i:10;N;i:11;N;i:12;N;i:13;N;}i:2;a:0:{}}i:2;a:3:{i:0;s:31:"Zikula_Form_Plugin_DropdownList";i:1;a:29:{i:0;s:2:"en";i:1;i:3;i:2;N;i:3;N;i:4;s:6:"single";i:5;N;i:6;N;i:7;s:26:"handleSelectedIndexChanged";i:8;b:0;i:9;N;i:10;s:8:"language";i:11;b:1;i:12;N;i:13;s:13:"languageItems";i:14;b:1;i:15;b:0;i:16;N;i:17;s:15:"Editor language";i:18;a:11:{i:0;a:2:{s:4:"text";s:2:"ca";s:5:"value";s:2:"ca";}i:1;a:2:{s:4:"text";s:2:"cn";s:5:"value";s:2:"cn";}i:2;a:2:{s:4:"text";s:2:"de";s:5:"value";s:2:"de";}i:3;a:2:{s:4:"text";s:2:"en";s:5:"value";s:2:"en";}i:4;a:2:{s:4:"text";s:2:"fi";s:5:"value";s:2:"fi";}i:5;a:2:{s:4:"text";s:2:"fr";s:5:"value";s:2:"fr";}i:6;a:2:{s:4:"text";s:2:"hu";s:5:"value";s:2:"hu";}i:7;a:2:{s:4:"text";s:2:"nl";s:5:"value";s:2:"nl";}i:8;a:2:{s:4:"text";s:2:"pl";s:5:"value";s:2:"pl";}i:9;a:2:{s:4:"text";s:2:"pt";s:5:"value";s:2:"pt";}i:10;a:2:{s:4:"text";s:2:"sv";s:5:"value";s:2:"sv";}}i:19;s:8:"language";i:20;a:0:{}i:21;s:8:"language";i:22;b:1;i:23;N;i:24;a:0:{}i:25;N;i:26;N;i:27;N;i:28;N;}i:2;a:0:{}}i:3;a:3:{i:0;s:24:"Zikula_Form_Plugin_Label";i:1;a:14:{i:0;s:5:"Theme";i:1;N;i:2;s:5:"theme";i:3;N;i:4;N;i:5;a:0:{}i:6;s:4:"plg3";i:7;b:1;i:8;N;i:9;a:0:{}i:10;N;i:11;N;i:12;N;i:13;N;}i:2;a:0:{}}i:4;a:3:{i:0;s:31:"Zikula_Form_Plugin_DropdownList";i:1;a:29:{i:0;s:8:"advanced";i:1;i:0;i:2;N;i:3;N;i:4;s:6:"single";i:5;N;i:6;N;i:7;s:26:"handleSelectedIndexChanged";i:8;b:0;i:9;N;i:10;s:5:"theme";i:11;b:1;i:12;N;i:13;s:10:"themeItems";i:14;b:1;i:15;b:0;i:16;N;i:17;s:5:"Theme";i:18;a:2:{i:0;a:2:{s:4:"text";s:8:"advanced";s:5:"value";s:8:"advanced";}i:1;a:2:{s:4:"text";s:6:"simple";s:5:"value";s:6:"simple";}}i:19;s:5:"theme";i:20;a:0:{}i:21;s:5:"theme";i:22;b:1;i:23;N;i:24;a:0:{}i:25;N;i:26;N;i:27;N;i:28;N;}i:2;a:0:{}}i:5;a:3:{i:0;s:24:"Zikula_Form_Plugin_Label";i:1;a:14:{i:0;s:11:"Date format";i:1;N;i:2;s:10:"dateformat";i:3;N;i:4;N;i:5;a:0:{}i:6;s:4:"plg4";i:7;b:1;i:8;N;i:9;a:0:{}i:10;N;i:11;N;i:12;N;i:13;N;}i:2;a:0:{}}i:6;a:3:{i:0;s:28:"Zikula_Form_Plugin_TextInput";i:1;a:30:{i:0;s:8:"%Y-%m-%d";i:1;s:10:"singleline";i:2;N;i:3;N;i:4;N;i:5;N;i:6;N;i:7;s:10:"dateformat";i:8;b:1;i:9;N;i:10;b:1;i:11;N;i:12;N;i:13;N;i:14;s:11:"Date format";i:15;s:2:"40";i:16;i:0;i:17;s:2:"50";i:18;N;i:19;N;i:20;s:10:"dateformat";i:21;a:0:{}i:22;s:10:"dateformat";i:23;b:1;i:24;N;i:25;a:0:{}i:26;N;i:27;N;i:28;N;i:29;N;}i:2;a:0:{}}i:7;a:3:{i:0;s:24:"Zikula_Form_Plugin_Label";i:1;a:14:{i:0;s:11:"Time format";i:1;N;i:2;s:10:"timeformat";i:3;N;i:4;N;i:5;a:0:{}i:6;s:4:"plg5";i:7;b:1;i:8;N;i:9;a:0:{}i:10;N;i:11;N;i:12;N;i:13;N;}i:2;a:0:{}}i:8;a:3:{i:0;s:28:"Zikula_Form_Plugin_TextInput";i:1;a:30:{i:0;s:8:"%H:%M:%S";i:1;s:10:"singleline";i:2;N;i:3;N;i:4;N;i:5;N;i:6;N;i:7;s:10:"timeformat";i:8;b:1;i:9;N;i:10;b:1;i:11;N;i:12;N;i:13;N;i:14;s:11:"Time format";i:15;s:2:"40";i:16;i:0;i:17;s:2:"50";i:18;N;i:19;N;i:20;s:10:"timeformat";i:21;a:0:{}i:22;s:10:"timeformat";i:23;b:1;i:24;N;i:25;a:0:{}i:26;N;i:27;N;i:28;N;i:29;N;}i:2;a:0:{}}i:9;a:3:{i:0;s:24:"Zikula_Form_Plugin_Label";i:1;a:14:{i:0;s:23:"Editor width and height";i:1;N;i:2;N;i:3;N;i:4;N;i:5;a:0:{}i:6;s:4:"plg6";i:7;b:1;i:8;N;i:9;a:0:{}i:10;N;i:11;N;i:12;N;i:13;N;}i:2;a:0:{}}i:10;a:3:{i:0;s:28:"Zikula_Form_Plugin_TextInput";i:1;a:30:{i:0;s:3:"65%";i:1;s:10:"singleline";i:2;N;i:3;N;i:4;N;i:5;N;i:6;N;i:7;s:5:"width";i:8;b:1;i:9;N;i:10;b:1;i:11;N;i:12;N;i:13;N;i:14;s:6:"px/(%)";i:15;s:1:"5";i:16;i:0;i:17;s:1:"6";i:18;N;i:19;N;i:20;s:5:"width";i:21;a:0:{}i:22;s:5:"width";i:23;b:1;i:24;N;i:25;a:0:{}i:26;N;i:27;N;i:28;N;i:29;N;}i:2;a:0:{}}i:11;a:3:{i:0;s:24:"Zikula_Form_Plugin_Label";i:1;a:14:{i:0;s:6:"px/(%)";i:1;N;i:2;s:5:"width";i:3;N;i:4;N;i:5;a:0:{}i:6;s:4:"plg7";i:7;b:1;i:8;N;i:9;a:0:{}i:10;N;i:11;N;i:12;N;i:13;N;}i:2;a:0:{}}i:12;a:3:{i:0;s:28:"Zikula_Form_Plugin_TextInput";i:1;a:30:{i:0;s:5:"400px";i:1;s:10:"singleline";i:2;N;i:3;N;i:4;N;i:5;N;i:6;N;i:7;s:6:"height";i:8;b:1;i:9;N;i:10;b:1;i:11;N;i:12;N;i:13;N;i:14;s:6:"px/(%)";i:15;s:1:"5";i:16;i:0;i:17;s:1:"6";i:18;N;i:19;N;i:20;s:6:"height";i:21;a:0:{}i:22;s:6:"height";i:23;b:1;i:24;N;i:25;a:0:{}i:26;N;i:27;N;i:28;N;i:29;N;}i:2;a:0:{}}i:13;a:3:{i:0;s:24:"Zikula_Form_Plugin_Label";i:1;a:14:{i:0;s:6:"px/(%)";i:1;N;i:2;s:6:"height";i:3;N;i:4;N;i:5;a:0:{}i:6;s:4:"plg8";i:7;b:1;i:8;N;i:9;a:0:{}i:10;N;i:11;N;i:12;N;i:13;N;}i:2;a:0:{}}i:14;a:3:{i:0;s:24:"Zikula_Form_Plugin_Label";i:1;a:14:{i:0;s:17:"Editor stylesheet";i:1;N;i:2;s:5:"style";i:3;N;i:4;N;i:5;a:0:{}i:6;s:4:"plg9";i:7;b:1;i:8;N;i:9;a:0:{}i:10;N;i:11;N;i:12;N;i:13;N;}i:2;a:0:{}}i:15;a:3:{i:0;s:28:"Zikula_Form_Plugin_TextInput";i:1;a:30:{i:0;s:48:"modules/Scribite/plugins/TinyMCE/style/style.css";i:1;s:10:"singleline";i:2;N;i:3;N;i:4;N;i:5;N;i:6;N;i:7;s:5:"style";i:8;b:1;i:9;N;i:10;b:1;i:11;N;i:12;N;i:13;N;i:14;s:17:"Editor stylesheet";i:15;s:2:"40";i:16;i:0;i:17;s:2:"50";i:18;N;i:19;N;i:20;s:5:"style";i:21;a:0:{}i:22;s:5:"style";i:23;b:1;i:24;N;i:25;a:0:{}i:26;N;i:27;N;i:28;N;i:29;N;}i:2;a:0:{}}i:16;a:3:{i:0;s:31:"Zikula_Form_Plugin_CheckboxList";i:1;a:25:{i:0;a:1:{i:0;s:0:"";}i:1;s:13:"activeplugins";i:2;N;i:3;N;i:4;N;i:5;b:0;i:6;N;i:7;s:13:"activeplugins";i:8;b:1;i:9;N;i:10;s:18:"activepluginsItems";i:11;b:1;i:12;b:0;i:13;N;i:14;N;i:15;a:39:{i:0;a:2:{s:4:"text";s:5:"advhr";s:5:"value";s:5:"advhr";}i:1;a:2:{s:4:"text";s:8:"advimage";s:5:"value";s:8:"advimage";}i:2;a:2:{s:4:"text";s:7:"advlink";s:5:"value";s:7:"advlink";}i:3;a:2:{s:4:"text";s:7:"advlist";s:5:"value";s:7:"advlist";}i:4;a:2:{s:4:"text";s:8:"autolink";s:5:"value";s:8:"autolink";}i:5;a:2:{s:4:"text";s:10:"autoresize";s:5:"value";s:10:"autoresize";}i:6;a:2:{s:4:"text";s:8:"autosave";s:5:"value";s:8:"autosave";}i:7;a:2:{s:4:"text";s:6:"bbcode";s:5:"value";s:6:"bbcode";}i:8;a:2:{s:4:"text";s:11:"contextmenu";s:5:"value";s:11:"contextmenu";}i:9;a:2:{s:4:"text";s:14:"directionality";s:5:"value";s:14:"directionality";}i:10;a:2:{s:4:"text";s:8:"emotions";s:5:"value";s:8:"emotions";}i:11;a:2:{s:4:"text";s:7:"example";s:5:"value";s:7:"example";}i:12;a:2:{s:4:"text";s:18:"example_dependency";s:5:"value";s:18:"example_dependency";}i:13;a:2:{s:4:"text";s:8:"fullpage";s:5:"value";s:8:"fullpage";}i:14;a:2:{s:4:"text";s:10:"fullscreen";s:5:"value";s:10:"fullscreen";}i:15;a:2:{s:4:"text";s:7:"iespell";s:5:"value";s:7:"iespell";}i:16;a:2:{s:4:"text";s:12:"inlinepopups";s:5:"value";s:12:"inlinepopups";}i:17;a:2:{s:4:"text";s:14:"insertdatetime";s:5:"value";s:14:"insertdatetime";}i:18;a:2:{s:4:"text";s:5:"layer";s:5:"value";s:5:"layer";}i:19;a:2:{s:4:"text";s:12:"legacyoutput";s:5:"value";s:12:"legacyoutput";}i:20;a:2:{s:4:"text";s:5:"lists";s:5:"value";s:5:"lists";}i:21;a:2:{s:4:"text";s:5:"media";s:5:"value";s:5:"media";}i:22;a:2:{s:4:"text";s:11:"nonbreaking";s:5:"value";s:11:"nonbreaking";}i:23;a:2:{s:4:"text";s:11:"noneditable";s:5:"value";s:11:"noneditable";}i:24;a:2:{s:4:"text";s:9:"pagebreak";s:5:"value";s:9:"pagebreak";}i:25;a:2:{s:4:"text";s:5:"paste";s:5:"value";s:5:"paste";}i:26;a:2:{s:4:"text";s:7:"preview";s:5:"value";s:7:"preview";}i:27;a:2:{s:4:"text";s:5:"print";s:5:"value";s:5:"print";}i:28;a:2:{s:4:"text";s:4:"save";s:5:"value";s:4:"save";}i:29;a:2:{s:4:"text";s:13:"searchreplace";s:5:"value";s:13:"searchreplace";}i:30;a:2:{s:4:"text";s:11:"simplemedia";s:5:"value";s:11:"simplemedia";}i:31;a:2:{s:4:"text";s:12:"spellchecker";s:5:"value";s:12:"spellchecker";}i:32;a:2:{s:4:"text";s:5:"style";s:5:"value";s:5:"style";}i:33;a:2:{s:4:"text";s:8:"tabfocus";s:5:"value";s:8:"tabfocus";}i:34;a:2:{s:4:"text";s:5:"table";s:5:"value";s:5:"table";}i:35;a:2:{s:4:"text";s:8:"template";s:5:"value";s:8:"template";}i:36;a:2:{s:4:"text";s:11:"visualchars";s:5:"value";s:11:"visualchars";}i:37;a:2:{s:4:"text";s:9:"wordcount";s:5:"value";s:9:"wordcount";}i:38;a:2:{s:4:"text";s:10:"xhtmlxtras";s:5:"value";s:10:"xhtmlxtras";}}i:16;a:0:{}i:17;s:13:"activeplugins";i:18;b:1;i:19;N;i:20;a:0:{}i:21;N;i:22;N;i:23;N;i:24;N;}i:2;a:0:{}}i:17;a:3:{i:0;s:25:"Zikula_Form_Plugin_Button";i:1;a:15:{i:0;s:4:"Save";i:1;s:13:"handleCommand";i:2;s:4:"save";i:3;N;i:4;N;i:5;N;i:6;a:0:{}i:7;s:5:"plg10";i:8;b:1;i:9;N;i:10;a:1:{s:5:"class";s:7:"z-bt-ok";}i:11;N;i:12;N;i:13;N;i:14;N;}i:2;a:0:{}}i:18;a:3:{i:0;s:25:"Zikula_Form_Plugin_Button";i:1;a:15:{i:0;s:16:"Restore defaults";i:1;s:13:"handleCommand";i:2;s:7:"restore";i:3;N;i:4;N;i:5;N;i:6;a:0:{}i:7;s:5:"plg11";i:8;b:1;i:9;N;i:10;a:1:{s:5:"class";s:12:"z-bt-archive";}i:11;N;i:12;N;i:13;N;i:14;N;}i:2;a:0:{}}i:19;a:3:{i:0;s:25:"Zikula_Form_Plugin_Button";i:1;a:15:{i:0;s:6:"Cancel";i:1;s:13:"handleCommand";i:2;s:6:"cancel";i:3;N;i:4;N;i:5;N;i:6;a:0:{}i:7;s:5:"plg12";i:8;b:1;i:9;N;i:10;a:1:{s:5:"class";s:11:"z-bt-cancel";}i:11;N;i:12;N;i:13;N;i:14;N;}i:2;a:0:{}}}}}s:4:"data";a:0:{}s:8:"includes";a:6:{s:33:"Form\\Plugin\\ValidationSummary.php";i:1;s:21:"Form\\Plugin\\Label.php";i:1;s:28:"Form\\Plugin\\DropdownList.php";i:1;s:25:"Form\\Plugin\\TextInput.php";i:1;s:28:"Form\\Plugin\\CheckboxList.php";i:1;s:22:"Form\\Plugin\\Button.php";i:1;}}s:14:"f507dc2768173f";a:3:{s:5:"state";a:1:{s:16:"Zikula_Form_View";a:1:{s:7:"plugins";a:23:{i:0;a:3:{i:0;s:36:"Zikula_Form_Plugin_ValidationSummary";i:1;a:9:{i:0;s:35:"z-form-validationSummary z-errormsg";i:1;s:4:"plg1";i:2;b:1;i:3;N;i:4;a:0:{}i:5;N;i:6;N;i:7;N;i:8;N;}i:2;a:0:{}}i:1;a:3:{i:0;s:23:"Clip_Form_Plugin_String";i:1;a:37:{i:0;s:6:"String";i:1;s:6:"C(255)";i:2;s:8:"clipmain";i:3;i:1;i:4;i:0;i:5;i:0;i:6;s:5:"title";i:7;s:0:"";i:8;s:10:"singleline";i:9;N;i:10;N;i:11;s:15:"z-form-text-big";i:12;N;i:13;N;i:14;s:25:"clip_clipmain_1_0_0_title";i:15;b:1;i:16;s:8:"clipdata";i:17;b:1;i:18;b:1;i:19;N;i:20;N;i:21;N;i:22;N;i:23;i:0;i:24;N;i:25;N;i:26;N;i:27;s:25:"clip_clipmain_1_0_0_title";i:28;a:0:{}i:29;s:25:"clip_clipmain_1_0_0_title";i:30;b:1;i:31;N;i:32;a:0:{}i:33;N;i:34;N;i:35;N;i:36;N;}i:2;a:0:{}}i:2;a:3:{i:0;s:24:"Zikula_Form_Plugin_Label";i:1;a:14:{i:0;s:7:"Content";i:1;N;i:2;s:27:"clip_clipmain_1_0_0_content";i:3;N;i:4;N;i:5;a:0:{}i:6;s:4:"plg2";i:7;b:1;i:8;N;i:9;a:0:{}i:10;N;i:11;N;i:12;N;i:13;N;}i:2;a:0:{}}i:3;a:3:{i:0;s:21:"Clip_Form_Plugin_Text";i:1;a:38:{i:0;s:4:"Text";i:1;s:8:"C(65535)";i:2;a:2:{s:11:"usescribite";b:1;s:6:"editor";s:1:"-";}i:3;s:8:"clipmain";i:4;i:1;i:5;i:0;i:6;i:0;i:7;s:7:"content";i:8;s:0:"";i:9;s:9:"multiline";i:10;N;i:11;N;i:12;N;i:13;s:2:"70";i:14;s:2:"25";i:15;s:27:"clip_clipmain_1_0_0_content";i:16;b:1;i:17;s:8:"clipdata";i:18;b:1;i:19;b:0;i:20;N;i:21;N;i:22;s:7:"Content";i:23;N;i:24;i:0;i:25;s:5:"65535";i:26;N;i:27;N;i:28;s:27:"clip_clipmain_1_0_0_content";i:29;a:0:{}i:30;s:27:"clip_clipmain_1_0_0_content";i:31;b:1;i:32;N;i:33;a:0:{}i:34;N;i:35;N;i:36;N;i:37;N;}i:2;a:0:{}}i:4;a:3:{i:0;s:24:"Zikula_Form_Plugin_Label";i:1;a:14:{i:0;s:7:"Summary";i:1;N;i:2;s:27:"clip_clipmain_1_0_0_summary";i:3;N;i:4;N;i:5;a:0:{}i:6;s:4:"plg3";i:7;b:1;i:8;N;i:9;a:0:{}i:10;N;i:11;N;i:12;N;i:13;N;}i:2;a:0:{}}i:5;a:3:{i:0;s:21:"Clip_Form_Plugin_Text";i:1;a:38:{i:0;s:4:"Text";i:1;s:8:"C(65535)";i:2;a:2:{s:11:"usescribite";b:0;s:6:"editor";s:1:"-";}i:3;s:8:"clipmain";i:4;i:1;i:5;i:0;i:6;i:0;i:7;s:7:"summary";i:8;s:0:"";i:9;s:9:"multiline";i:10;N;i:11;N;i:12;N;i:13;s:2:"70";i:14;s:1:"4";i:15;s:27:"clip_clipmain_1_0_0_summary";i:16;b:1;i:17;s:8:"clipdata";i:18;b:1;i:19;b:0;i:20;N;i:21;N;i:22;s:7:"Summary";i:23;N;i:24;i:0;i:25;s:5:"65535";i:26;N;i:27;N;i:28;s:27:"clip_clipmain_1_0_0_summary";i:29;a:0:{}i:30;s:27:"clip_clipmain_1_0_0_summary";i:31;b:1;i:32;N;i:33;a:0:{}i:34;N;i:35;N;i:36;N;i:37;N;}i:2;a:0:{}}i:6;a:3:{i:0;s:24:"Zikula_Form_Plugin_Label";i:1;a:14:{i:0;s:8:"Category";i:1;N;i:2;s:28:"clip_clipmain_1_0_0_category";i:3;N;i:4;N;i:5;a:0:{}i:6;s:4:"plg4";i:7;b:1;i:8;N;i:9;a:0:{}i:10;N;i:11;N;i:12;N;i:13;N;}i:2;a:0:{}}i:7;a:3:{i:0;s:21:"Clip_Form_Plugin_List";i:1;a:45:{i:0;s:4:"List";i:1;s:2:"I4";i:2;s:8:"cliplist";i:3;a:3:{i:0;i:32;i:1;b:1;i:2;b:0;}i:4;s:8:"clipmain";i:5;i:1;i:6;i:0;i:7;i:0;i:8;s:8:"category";i:9;b:0;i:10;a:17:{s:2:"id";s:2:"32";s:9:"parent_id";s:1:"2";s:9:"is_locked";s:1:"0";s:7:"is_leaf";s:1:"0";s:4:"name";s:6:"Global";s:5:"value";s:0:"";s:10:"sort_value";s:2:"32";s:12:"display_name";a:1:{s:2:"en";s:6:"Global";}s:12:"display_desc";a:1:{s:2:"en";s:0:"";}s:4:"path";s:26:"/__SYSTEM__/Modules/Global";s:5:"ipath";s:7:"/1/2/32";s:6:"status";s:1:"A";s:10:"obj_status";s:1:"A";s:7:"cr_date";s:19:"2012-10-16 22:20:23";s:6:"cr_uid";s:1:"0";s:7:"lu_date";s:19:"2012-10-16 22:20:23";s:6:"lu_uid";s:1:"0";}i:11;b:1;i:12;b:0;i:13;b:0;i:14;N;i:15;N;i:16;N;i:17;i:0;i:18;N;i:19;N;i:20;s:6:"single";i:21;N;i:22;N;i:23;s:26:"handleSelectedIndexChanged";i:24;b:0;i:25;N;i:26;s:28:"clip_clipmain_1_0_0_category";i:27;b:1;i:28;s:8:"clipdata";i:29;s:33:"clip_clipmain_1_0_0_categoryItems";i:30;b:1;i:31;b:0;i:32;N;i:33;s:8:"Category";i:34;a:10:{i:0;a:2:{s:4:"text";s:0:"";s:5:"value";N;}i:1;a:2:{s:4:"text";s:9:" Blogging";s:5:"value";s:2:"33";}i:2;a:2:{s:4:"text";s:16:" Music and audio";s:5:"value";s:2:"34";}i:3;a:2:{s:4:"text";s:20:" Art and photography";s:5:"value";s:2:"35";}i:4;a:2:{s:4:"text";s:21:" Writing and thinking";s:5:"value";s:2:"36";}i:5;a:2:{s:4:"text";s:25:" Communications and media";s:5:"value";s:2:"37";}i:6;a:2:{s:4:"text";s:19:" Travel and culture";s:5:"value";s:2:"38";}i:7;a:2:{s:4:"text";s:23:" Science and technology";s:5:"value";s:2:"39";}i:8;a:2:{s:4:"text";s:21:" Sport and activities";s:5:"value";s:2:"40";}i:9;a:2:{s:4:"text";s:18:" Business and work";s:5:"value";s:2:"41";}}i:35;s:28:"clip_clipmain_1_0_0_category";i:36;a:0:{}i:37;s:28:"clip_clipmain_1_0_0_category";i:38;b:1;i:39;N;i:40;a:0:{}i:41;N;i:42;N;i:43;N;i:44;N;}i:2;a:0:{}}i:8;a:3:{i:0;s:24:"Zikula_Form_Plugin_Label";i:1;a:14:{i:0;s:8:"Language";i:1;N;i:2;s:33:"clip_clipmain_1_0_0_core_language";i:3;N;i:4;N;i:5;a:0:{}i:6;s:4:"plg5";i:7;b:1;i:8;N;i:9;a:0:{}i:10;N;i:11;N;i:12;N;i:13;N;}i:2;a:0:{}}i:9;a:3:{i:0;s:25:"Clip_Form_Plugin_Language";i:1;a:37:{i:0;s:17:"Language Selector";i:1;s:5:"C(10)";i:2;a:2:{i:0;b:1;i:1;b:1;}i:3;s:8:"clipmain";i:4;i:1;i:5;i:0;i:6;i:0;i:7;s:13:"core_language";i:8;s:0:"";i:9;i:0;i:10;N;i:11;N;i:12;s:6:"single";i:13;N;i:14;N;i:15;s:26:"handleSelectedIndexChanged";i:16;b:0;i:17;N;i:18;s:33:"clip_clipmain_1_0_0_core_language";i:19;b:1;i:20;s:8:"clipdata";i:21;s:38:"clip_clipmain_1_0_0_core_languageItems";i:22;b:1;i:23;b:0;i:24;N;i:25;s:8:"Language";i:26;a:2:{i:0;a:2:{s:4:"text";s:3:"All";s:5:"value";s:0:"";}i:1;a:2:{s:4:"text";s:7:"English";s:5:"value";s:2:"en";}}i:27;s:33:"clip_clipmain_1_0_0_core_language";i:28;a:0:{}i:29;s:33:"clip_clipmain_1_0_0_core_language";i:30;b:1;i:31;N;i:32;a:0:{}i:33;N;i:34;N;i:35;N;i:36;N;}i:2;a:0:{}}i:10;a:3:{i:0;s:24:"Zikula_Form_Plugin_Label";i:1;a:14:{i:0;s:15:"Permalink title";i:1;N;i:2;s:33:"clip_clipmain_1_0_0_core_urltitle";i:3;N;i:4;N;i:5;a:0:{}i:6;s:4:"plg6";i:7;b:1;i:8;N;i:9;a:0:{}i:10;N;i:11;N;i:12;N;i:13;N;}i:2;a:0:{}}i:11;a:3:{i:0;s:23:"Clip_Form_Plugin_String";i:1;a:37:{i:0;s:6:"String";i:1;s:6:"C(255)";i:2;s:8:"clipmain";i:3;i:1;i:4;i:0;i:5;i:0;i:6;s:13:"core_urltitle";i:7;s:0:"";i:8;s:10:"singleline";i:9;N;i:10;N;i:11;N;i:12;N;i:13;N;i:14;s:33:"clip_clipmain_1_0_0_core_urltitle";i:15;b:1;i:16;s:8:"clipdata";i:17;b:1;i:18;b:0;i:19;N;i:20;N;i:21;s:15:"Permalink title";i:22;N;i:23;i:0;i:24;N;i:25;N;i:26;N;i:27;s:33:"clip_clipmain_1_0_0_core_urltitle";i:28;a:0:{}i:29;s:33:"clip_clipmain_1_0_0_core_urltitle";i:30;b:1;i:31;N;i:32;a:0:{}i:33;N;i:34;N;i:35;N;i:36;N;}i:2;a:0:{}}i:12;a:3:{i:0;s:24:"Zikula_Form_Plugin_Label";i:1;a:14:{i:0;s:12:"Publish date";i:1;N;i:2;s:36:"clip_clipmain_1_0_0_core_publishdate";i:3;N;i:4;N;i:5;a:0:{}i:6;s:4:"plg7";i:7;b:1;i:8;N;i:9;a:0:{}i:10;N;i:11;N;i:12;N;i:13;N;}i:2;a:0:{}}i:13;a:3:{i:0;s:21:"Clip_Form_Plugin_Date";i:1;a:44:{i:0;s:4:"Date";i:1;s:1:"T";i:2;s:4:"date";i:3;s:8:"clipmain";i:4;i:1;i:5;i:0;i:6;i:0;i:7;s:16:"core_publishdate";i:8;b:1;i:9;s:1:"0";i:10;s:14:"%Y-%m-%d %H:%M";i:11;s:24:"%A, %B %d, %Y - %I:%M %p";i:12;N;i:13;i:0;i:14;s:0:"";i:15;s:10:"singleline";i:16;N;i:17;N;i:18;s:12:" z-form-date";i:19;N;i:20;N;i:21;s:36:"clip_clipmain_1_0_0_core_publishdate";i:22;b:1;i:23;s:8:"clipdata";i:24;b:1;i:25;b:0;i:26;N;i:27;N;i:28;s:12:"Publish date";i:29;N;i:30;i:0;i:31;N;i:32;N;i:33;N;i:34;s:36:"clip_clipmain_1_0_0_core_publishdate";i:35;a:0:{}i:36;s:36:"clip_clipmain_1_0_0_core_publishdate";i:37;b:1;i:38;N;i:39;a:0:{}i:40;N;i:41;N;i:42;N;i:43;N;}i:2;a:0:{}}i:14;a:3:{i:0;s:24:"Zikula_Form_Plugin_Label";i:1;a:14:{i:0;s:11:"Expire date";i:1;N;i:2;s:35:"clip_clipmain_1_0_0_core_expiredate";i:3;N;i:4;N;i:5;a:0:{}i:6;s:4:"plg8";i:7;b:1;i:8;N;i:9;a:0:{}i:10;N;i:11;N;i:12;N;i:13;N;}i:2;a:0:{}}i:15;a:3:{i:0;s:21:"Clip_Form_Plugin_Date";i:1;a:44:{i:0;s:4:"Date";i:1;s:1:"T";i:2;s:4:"date";i:3;s:8:"clipmain";i:4;i:1;i:5;i:0;i:6;i:0;i:7;s:15:"core_expiredate";i:8;b:1;i:9;s:1:"0";i:10;s:14:"%Y-%m-%d %H:%M";i:11;s:24:"%A, %B %d, %Y - %I:%M %p";i:12;N;i:13;i:0;i:14;s:0:"";i:15;s:10:"singleline";i:16;N;i:17;N;i:18;s:12:" z-form-date";i:19;N;i:20;N;i:21;s:35:"clip_clipmain_1_0_0_core_expiredate";i:22;b:1;i:23;s:8:"clipdata";i:24;b:1;i:25;b:0;i:26;N;i:27;N;i:28;s:11:"Expire date";i:29;N;i:30;i:0;i:31;N;i:32;N;i:33;N;i:34;s:35:"clip_clipmain_1_0_0_core_expiredate";i:35;a:0:{}i:36;s:35:"clip_clipmain_1_0_0_core_expiredate";i:37;b:1;i:38;N;i:39;a:0:{}i:40;N;i:41;N;i:42;N;i:43;N;}i:2;a:0:{}}i:16;a:3:{i:0;s:24:"Zikula_Form_Plugin_Label";i:1;a:14:{i:0;s:7:"Visible";i:1;N;i:2;s:32:"clip_clipmain_1_0_0_core_visible";i:3;N;i:4;N;i:5;a:0:{}i:6;s:4:"plg9";i:7;b:1;i:8;N;i:9;a:0:{}i:10;N;i:11;N;i:12;N;i:13;N;}i:2;a:0:{}}i:17;a:3:{i:0;s:25:"Clip_Form_Plugin_Checkbox";i:1;a:29:{i:0;s:8:"Checkbox";i:1;s:1:"L";i:2;s:8:"clipmain";i:3;i:1;i:4;i:0;i:5;i:0;i:6;s:12:"core_visible";i:7;s:1:"1";i:8;b:0;i:9;b:0;i:10;N;i:11;N;i:12;s:7:"Visible";i:13;N;i:14;b:1;i:15;N;i:16;s:32:"clip_clipmain_1_0_0_core_visible";i:17;b:1;i:18;s:8:"clipdata";i:19;s:32:"clip_clipmain_1_0_0_core_visible";i:20;a:0:{}i:21;s:32:"clip_clipmain_1_0_0_core_visible";i:22;b:1;i:23;N;i:24;a:0:{}i:25;N;i:26;N;i:27;N;i:28;N;}i:2;a:0:{}}i:18;a:3:{i:0;s:24:"Zikula_Form_Plugin_Label";i:1;a:14:{i:0;s:6:"Locked";i:1;N;i:2;s:31:"clip_clipmain_1_0_0_core_locked";i:3;N;i:4;N;i:5;a:0:{}i:6;s:5:"plg10";i:7;b:1;i:8;N;i:9;a:0:{}i:10;N;i:11;N;i:12;N;i:13;N;}i:2;a:0:{}}i:19;a:3:{i:0;s:25:"Clip_Form_Plugin_Checkbox";i:1;a:29:{i:0;s:8:"Checkbox";i:1;s:1:"L";i:2;s:8:"clipmain";i:3;i:1;i:4;i:0;i:5;i:0;i:6;s:11:"core_locked";i:7;s:1:"0";i:8;b:0;i:9;b:0;i:10;N;i:11;N;i:12;s:6:"Locked";i:13;N;i:14;b:1;i:15;N;i:16;s:31:"clip_clipmain_1_0_0_core_locked";i:17;b:1;i:18;s:8:"clipdata";i:19;s:31:"clip_clipmain_1_0_0_core_locked";i:20;a:0:{}i:21;s:31:"clip_clipmain_1_0_0_core_locked";i:22;b:1;i:23;N;i:24;a:0:{}i:25;N;i:26;N;i:27;N;i:28;N;}i:2;a:0:{}}i:20;a:3:{i:0;s:25:"Zikula_Form_Plugin_Button";i:1;a:15:{i:0;s:18:"Submit and Approve";i:1;s:13:"handleCommand";i:2;s:7:"approve";i:3;N;i:4;N;i:5;N;i:6;a:0:{}i:7;s:5:"plg11";i:8;b:1;i:9;N;i:10;a:2:{s:5:"class";s:7:"z-bt-ok";s:5:"title";s:44:"Submit a publication and approve immediately";}i:11;N;i:12;N;i:13;N;i:14;N;}i:2;a:0:{}}i:21;a:3:{i:0;s:25:"Zikula_Form_Plugin_Button";i:1;a:15:{i:0;s:6:"Submit";i:1;s:13:"handleCommand";i:2;s:12:"authorsubmit";i:3;N;i:4;N;i:5;N;i:6;a:0:{}i:7;s:5:"plg12";i:8;b:1;i:9;N;i:10;a:2:{s:5:"class";s:8:"z-bt-new";s:5:"title";s:50:"Submit a publication for acceptance by a moderator";}i:11;N;i:12;N;i:13;N;i:14;N;}i:2;a:0:{}}i:22;a:3:{i:0;s:25:"Zikula_Form_Plugin_Button";i:1;a:15:{i:0;s:6:"Cancel";i:1;s:13:"handleCommand";i:2;s:6:"cancel";i:3;N;i:4;N;i:5;N;i:6;a:0:{}i:7;s:5:"plg13";i:8;b:1;i:9;N;i:10;a:1:{s:5:"class";s:11:"z-bt-cancel";}i:11;N;i:12;N;i:13;N;i:14;N;}i:2;a:0:{}}}}}s:4:"data";a:3:{s:4:"pubs";a:0:{}s:5:"links";a:0:{}s:7:"referer";s:41:"http://localhost/Zikula_Standard-1.3.4-1/";}s:8:"includes";a:9:{s:33:"Form\\Plugin\\ValidationSummary.php";i:1;s:84:"C:\\xampp\\htdocs\\Zikula_Standard-1.3.4-1\\modules\\Clip\\lib\\Clip\\Form\\Plugin\\String.php";i:1;s:21:"Form\\Plugin\\Label.php";i:1;s:82:"C:\\xampp\\htdocs\\Zikula_Standard-1.3.4-1\\modules\\Clip\\lib\\Clip\\Form\\Plugin\\Text.php";i:1;s:82:"C:\\xampp\\htdocs\\Zikula_Standard-1.3.4-1\\modules\\Clip\\lib\\Clip\\Form\\Plugin\\List.php";i:1;s:86:"C:\\xampp\\htdocs\\Zikula_Standard-1.3.4-1\\modules\\Clip\\lib\\Clip\\Form\\Plugin\\Language.php";i:1;s:82:"C:\\xampp\\htdocs\\Zikula_Standard-1.3.4-1\\modules\\Clip\\lib\\Clip\\Form\\Plugin\\Date.php";i:1;s:86:"C:\\xampp\\htdocs\\Zikula_Standard-1.3.4-1\\modules\\Clip\\lib\\Clip\\Form\\Plugin\\Checkbox.php";i:1;s:22:"Form\\Plugin\\Button.php";i:1;}}}');
 
 -- --------------------------------------------------------
 
@@ -1498,7 +1495,7 @@ CREATE TABLE `tag_entity_object_tag_entity_tag` (
   PRIMARY KEY (`tag_entity_object_id`,`tag_entity_tag_id`),
   KEY `IDX_62EE9B1C10C94B2` (`tag_entity_object_id`),
   KEY `IDX_62EE9B1C90B1AA9B` (`tag_entity_tag_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1514,7 +1511,7 @@ CREATE TABLE `tag_object` (
   `url` varchar(255) DEFAULT NULL,
   `urlObject` longtext COMMENT '(DC2Type:object)',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1527,7 +1524,7 @@ CREATE TABLE `tag_tag` (
   `tag` varchar(36) NOT NULL,
   `slug` varchar(128) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `tag_tag`
@@ -1558,7 +1555,7 @@ CREATE TABLE `themes` (
   `state` tinyint(4) NOT NULL DEFAULT '0',
   `xhtml` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `themes`
@@ -1583,7 +1580,7 @@ CREATE TABLE `userblocks` (
   `active` int(11) NOT NULL,
   `last_update` datetime NOT NULL,
   PRIMARY KEY (`uid`,`bid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1610,14 +1607,14 @@ CREATE TABLE `users` (
   PRIMARY KEY (`uid`),
   KEY `uname` (`uname`),
   KEY `email` (`email`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` VALUES(1, 'guest', '', '', '', 1, '1970-01-01 00:00:00', 0, '1970-01-01 00:00:00', '1970-01-01 00:00:00', '', 0, '', '', '');
-INSERT INTO `users` VALUES(2, 'admin', 'example@example.com', '8$W3XUG$79055f7c0ca5a86d595b550d650758fdc82acc5334ce44863c06d1cd55dc1238', '', 1, '2012-10-06 11:41:53', 2, '2012-10-06 11:41:57', '2012-10-06 14:51:14', '', 0, '', '', '');
+INSERT INTO `users` VALUES(2, 'admin', 'example@example.com', '8$YZ~e5$234a1c7eee0bca27c1a81df970d1058109455fae40b08d9ab76ba0c227827530', '', 1, '2012-10-16 20:20:14', 2, '2012-10-16 20:20:26', '2012-10-16 20:20:41', '', 0, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1633,7 +1630,7 @@ CREATE TABLE `users_verifychg` (
   `verifycode` varchar(138) NOT NULL,
   `created_dt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -1652,7 +1649,7 @@ CREATE TABLE `user_property` (
   PRIMARY KEY (`id`),
   KEY `prop_label` (`label`),
   KEY `prop_attr` (`attributename`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `user_property`
@@ -1695,7 +1692,7 @@ CREATE TABLE `workflows` (
   KEY `obj_table` (`obj_table`),
   KEY `obj_idcolumn` (`obj_idcolumn`),
   KEY `obj_id` (`obj_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `workflows`
@@ -1704,6 +1701,17 @@ CREATE TABLE `workflows` (
 INSERT INTO `workflows` VALUES(1, 0, 'Clip', 'standard', 'approved', 1, 'clip_pubdata1', 'id', 1, 0, '');
 INSERT INTO `workflows` VALUES(2, 0, 'Clip', 'none', 'approved', 1, 'clip_pubdata2', 'id', 1, 0, '');
 INSERT INTO `workflows` VALUES(3, 0, 'Clip', 'none', 'approved', 1, 'clip_pubdata2', 'id', 2, 0, '');
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tag_entity_object_tag_entity_tag`
+--
+ALTER TABLE `tag_entity_object_tag_entity_tag`
+  ADD CONSTRAINT `FK_62EE9B1C90B1AA9B` FOREIGN KEY (`tag_entity_tag_id`) REFERENCES `tag_tag` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_62EE9B1C10C94B2` FOREIGN KEY (`tag_entity_object_id`) REFERENCES `tag_object` (`id`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
